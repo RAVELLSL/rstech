@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artigos Tecnológicos</title>
+  <style>
+  body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #f3f3f3;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('https://thumbs.gfycat.com/AbandonedMajesticHornet-size_restricted.gif'); /* Adicione o caminho para a imagem de fundo aqui */
+  background-size: cover; /* Isso fará com que a imagem de fundo cubra toda a área do container */
+  background-position: center; /* Isso fará com que a imagem de fundo esteja centralizada */
+}
+
+.login-form {
+  background-color: #ffffff;
+  padding: 100px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px; /* Isso arredonda os cantos do formulário de login */
+}
+
+.login-form h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.login-form input[type="password"] {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
+  width: 100%;
+}
+
+.login-form input[type="submit"] {
+  padding: 5px 10px;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 10px;
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.login-form input[type="submit"]:hover {
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+header .logo h1 {
+  margin: 0;
+  font-weight: 500;
+  display: inline;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+header .logo {
+  text-align: center;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav ul li {
+  margin-left: 20px;
+}
+
+.nav ul li:first-child {
+  margin-left: 0;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #ddd;
+}
+
+main {
+  padding: 20px;
+}
+
+.about-section {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-section h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exibe 3 cards por linha em telas grandes */
+  gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Exibe 2 cards por linha em telas menores */
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px 0 hsla(0, 0%, 0%, 0.1);
+  transform: scale(1.03);
+  border: 2px solid #00d4ff;
+}
+
+.grid-container article h2 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.grid-container article p {
+  font-size: 16px;
+  text-align: justify;
+}
+
+.grid-container article .card-image {
+  width: 100%;
+  height: 200px; /* Altura desejada */
+  object-fit: cover;
+}
+
+.contact-form {
+  display: none;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+  max-width: 550px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.contact-form.open {
+  display: block;
+}
+
+.contact-form h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
+  width: 100%;
+}
+
+.contact-form textarea {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
+  width: 100%;
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form input[type="submit"] {
+  padding: 5px 10px;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 10px;
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.contact-form input[type="submit"]:hover {
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.article-container h2 {
+  margin-top: 0;
+}
+
+.article-container audio {
+  width: 300px;
+  margin: 20px 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.article-container .access-link {
+  padding: 5px 10px;
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 10px;
+  display: block;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.article-container .access-link:hover {
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
+}
+  </style>
+</head>
+<body>
+  <div id="login" class="login-container">
+    <div class="login-form">
+      <h2>Área de Login</h2>
+      <form onsubmit="validateForm(event)">
+        <input type="password" id="password" name="password" placeholder="Digite a senha">
+        <input type="submit" value="Acessar">
+      </form>
+    </div>
+  </div>
+
+  <div id="content" class="hidden">
+    <header>
+      <div class="logo">
+        <h1>Materiais Complementares</h1>
+      </div>
+      <nav class="nav">
+        <ul class="flex-container">
+          <li><a href="mailto:ravell.lopes@gmail.com">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <img src="https://scontent.frec15-1.fna.fbcdn.net/v/t39.30808-6/355136240_114092818386385_8666226385074923351_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFpvHfERuAeKSu954vACnKdWQCS7XeqyGVZAJLtd6rIZRCEUjY4Di_CbWsf_8VRNJEnk_5k93e4TdJ0aPgWncBl&_nc_ohc=CHanMpxC6GQAX_z3UJ_&_nc_ht=scontent.frec15-1.fna&oh=00_AfDOltNYzNP73iMlpnX2EQN_L3kVv6PZkUxiVT4i6wkWrw&oe=64C3C4FF" alt="professor" style="float: right; width: 5%;margin-right: auto; transform: rotate(5.5deg);"> <!-- Ajuste o valor de rotate() conforme necessário -->
+
+    <section id="sobre" class="about-section">
+      <section id="sobre" class="about-section">
+        <h2>Atenção!</h2>
+        <p>
+          Nesse espaço você encontra informações complementares dos assuntos abordados em aula.
+        </p><br>
+      </section>
+
+    <section class="grid-container">
+
+      <article class="grid-item">
+        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/wQizTcj1hew" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2>Empatia Artificial</h2>
+        <p>A empatia artificial compreende as emoções humanas, permitindo sistemas computacionais interagirem conosco de maneira inédita.</p>
+        <div class="article-container">
+          <div class="button-container">
+            <a href="https://drive.google.com/file/d/1hILmn-K_lxTrctKfcB7IbWjqLz5LuqX4/view?usp=sharing" target="_blank" class="download-button">Texto</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="grid-item">
+        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/rQizFGMqdY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2>Quinta Revolução Industrial</h2>
+        <p>A quinta revolução industrial e as convergência de tecnologias disruptivas que estão transformando a economia global.</p>
+        <div class="article-container">
+          <div class="button-container">
+            <a href="https://drive.google.com/file/d/16pPVZT6y-Hv6wMxUrXqZPdyJgT9g_1xI/view?usp=sharing" target="_blank" class="download-button">Texto</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="grid-item">
+        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/3E0VhkoJnd4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2>Correntes Filosóficas da Tecnologia</h2>
+        <p>As correntes filosóficas da tecnologia abrangem diferentes perspectivas sobre o impacto e o papel da tecnologia na sociedade.</p>
+        <div class="article-container">
+          <div class="button-container">
+            <a href="https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view?usp=sharing" target="_blank" class="download-button">Texto</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Artigos Tecnológicos. Todos os direitos reservados.</p>
+  </footer>
+</div>
+
+<section id="contato" class="contact-form">
+  <h2>Contato</h2>
+  <form>
+    <input type="text" name="name" placeholder="Seu nome">
+    <input type="email" name="email" placeholder="Seu email">
+    <textarea name="message" placeholder="Sua mensagem"></textarea>
+    <input type="submit" value="Enviar">
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2023 Ravell. Todos os direitos reservados.</p>
+</footer>
+</div>
+
+<script>
+  function validateForm(event) {
+    event.preventDefault();
+    var password = document.getElementById('password').value;
+    if (password === 'aluno') {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    } else {
+      alert('Senha incorreta! Por favor, tente novamente.');
+    }
+  }
+</script>
+</body>
+</html>
