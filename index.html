@@ -27,14 +27,27 @@
   max-width: 400px;
   margin: 0 auto;
   border-radius: 10px; /* Isso arredonda os cantos do formulário de login */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 
 .login-form h2 {
   margin-top: 0;
   text-align: center;
 }
 
-.login-form input[type="password"] {
+.login-form input[type="submit"] {
+  margin: 20px auto;
   margin-top: 10px;
   padding: 10px;
   border: none;
@@ -291,10 +304,17 @@ footer {
   <div id="login" class="login-container">
     <div class="login-form">
       <h2>Área de Login</h2>
+     
       <form onsubmit="validateForm(event)">
-        <input type="password" id="password" name="password" placeholder="Digite a senha">
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <input type="password" id="password" name="password" placeholder="Digite a senha" style="width: 80%; text-align: center;" autocomplete="off">
+        </div>
+        <div style="text-align: right; font-size: 0.8em;">
+          <input type="checkbox" id="showPasswordCheckbox"> Mostrar Senha
+        </div>
         <input type="submit" value="Acessar">
       </form>
+
     </div>
   </div>
 
@@ -306,6 +326,7 @@ footer {
       <nav class="nav">
         <ul class="flex-container">
           <li><a href="mailto:ravell.lopes@gmail.com">Contato</a></li>
+          <li><a href="#" onclick="logout()">Sair</a></li> <!-- Adicione esta linha -->
         </ul>
       </nav>
     </header>
@@ -390,16 +411,32 @@ footer {
 </div>
 
 <script>
-  function validateForm(event) {
-    event.preventDefault();
-    var password = document.getElementById('password').value;
-    if (password === 'aluno') {
-      document.getElementById('login').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
-    } else {
-      alert('Senha incorreta! Por favor, tente novamente.');
-    }
+document.getElementById('showPasswordCheckbox').addEventListener('change', function() { // Altere esta linha
+  var passwordInput = document.getElementById('password');
+  if (this.checked) {
+    passwordInput.type = 'text';
+  } else {
+    passwordInput.type = 'password';
   }
+});
+
+function validateForm(event) {
+  event.preventDefault();
+  var password = document.getElementById('password').value;
+  if (password === 'aluno') {
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } else {
+    alert('Senha incorreta! Por favor, tente novamente.');
+  }
+}
+
+function logout() {
+  document.getElementById('content').style.display = 'none';
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('password').value = '';
+}
+
 </script>
 </body>
 </html>
