@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Artigos Tecnológicos</title>
+  <title>Ravell</title>
   <style>
-  body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  background-color: #ffffff;
-}
+ body {
+    font-family: 'Arial', sans-serif; /* Aqui está a nova fonte */
+    margin: 0;
+    background-color: #ffffff;
+  }
 
 .login-container {
   display: flex;
@@ -98,11 +99,23 @@ header .logo {
   text-align: center;
 }
 
-.nav ul {
+.nav {
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.nav ul {
   list-style-type: none;
   padding: 0;
+}
+
+.nav-left li {
+  margin-right: auto;
+}
+
+.nav-right li {
+  margin-left: auto;
 }
 
 .nav ul li {
@@ -110,7 +123,7 @@ header .logo {
 }
 
 .nav ul li:first-child {
-  margin-left: 0;
+  margin-right: auto;
 }
 
 .nav ul li a {
@@ -140,6 +153,13 @@ main {
 .about-section h2 {
   margin-top: 0;
   text-align: center;
+  font-size: 24px; /* Aumenta o tamanho da fonte */
+  font-weight: bold; /* Torna o texto negrito */
+}
+
+.about-section p {
+  font-size: 18px; /* Aumenta o tamanho da fonte */
+  color: rgb(0, 0, 0); /* Altera a cor do texto para azul */
 }
 
 .grid-container {
@@ -324,9 +344,11 @@ footer {
         <h1>Materiais Complementares</h1>
       </div>
       <nav class="nav">
-        <ul class="flex-container">
-          <li><a href="mailto:ravell.lopes@gmail.com">Contato</a></li>
-          <li><a href="#" onclick="logout()">Sair</a></li> <!-- Adicione esta linha -->
+        <ul class="nav-left">
+          <li><a href="mailto:ravell.lopes@gmail.com">Dúvidas, Opiniões e Sugestões</a></li>
+        </ul>
+        <ul class="nav-right">
+          <li><a href="#" onclick="logout()">Sair</a></li>
         </ul>
       </nav>
     </header>
@@ -389,12 +411,11 @@ footer {
       </article>
     </section>
   </main>
-
   <footer>
-    <p>&copy; 2023 Artigos Tecnológicos. Todos os direitos reservados.</p>
+    <p>&copy; 2023 Ravell. Todos os direitos reservados.</p>
   </footer>
-</div>
-
+  </div>
+  
 <section id="contato" class="contact-form">
   <h2>Contato</h2>
   <form>
@@ -404,11 +425,6 @@ footer {
     <input type="submit" value="Enviar">
   </form>
 </section>
-
-<footer>
-  <p>&copy; 2023 Ravell. Todos os direitos reservados.</p>
-</footer>
-</div>
 
 <script>
 document.getElementById('showPasswordCheckbox').addEventListener('change', function() { // Altere esta linha
