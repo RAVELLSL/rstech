@@ -2,466 +2,668 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ravell</title>
-  <style>
- body {
-    font-family: 'Arial', sans-serif; /* Aqui está a nova fonte */
-    margin: 0;
-    background-color: #ffffff;
-  }
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif'); /* Adicione o caminho para a imagem de fundo aqui */
-  background-size: cover; /* Isso fará com que a imagem de fundo cubra toda a área do container */
-  background-position: center; /* Isso fará com que a imagem de fundo esteja centralizada */
-}
-
-.login-form {
-  background-color: #ffffff;
-  padding: 100px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
-  max-width: 400px;
-  margin: 0 auto;
-  border-radius: 10px; /* Isso arredonda os cantos do formulário de login */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-form form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
+<title>Ravell</title>
+<style>
+        /*ESTILOS GERAIS*/
+        body {font-family: 'Arial', sans-serif;margin: 0;background-color: #ffffff;}   
+        .login-container {display: flex;flex-direction: column;align-items: center;justify-content: center;height: 100vh;
+          background-image: url('https://media.tenor.com/wngVe_Erkh8AAAAC/blue-white.gif');background-size: cover;background-position: center;            
+        }
 
 
-.login-form h2 {
-  margin-top: 0;
-  text-align: center;
-}
+        /*PÁGINA DE LOGIN*/        
+        .login-form {
+            background-color: #ffffff;
+            padding: 50px; /* Reduzir o padding se necessário */
+            box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+            max-width: 100%; /* Mudar para 100% para evitar ultrapassar o limite do container */
+            margin: 0 auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-form input[type="submit"] {
+          padding: 5px 10px;
+          background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+          color: white;
+          cursor: pointer;
+          transition: background 0.3s ease;
+          margin-bottom: 10px;
+          display: block;
+          max-width: 200px;
+          margin: 0 auto;
+          border-radius: 5px;
+        }
+        .login-form input[type="submit"]:hover {
+          background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
+        }
+        .login-form input[type="password"],
+        .login-form input[type="submit"] {
+            padding: 12px; /* Aumento do padding dos campos de entrada */
+            font-size: 15px; /* Aumento do tamanho da fonte dos campos de entrada */
+            width: 100%; /* Largura completa */
+        }
 
-.login-form input[type="submit"] {
-  margin: 20px auto;
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
-  width: 100%;
-}
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .show-password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            font-size: 1em;
+        }
+        .hidden {
+          display: none;
+        }
 
-.login-form input[type="submit"] {
-  padding: 5px 10px;
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-bottom: 10px;
-  display: block;
-  max-width: 200px;
-  margin: 0 auto;
-}
 
-.login-form input[type="submit"]:hover {
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
-}
+        /*MENU*/
+        header {
+          background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+          color: white;
+          box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px 40px;
+        }
+        header .logo h1 {
+          margin: 0;
+          font-weight: 500;
+          display: inline;
+          transform: translateX(-50%);
+          left: 50%;
+          position: absolute;
+        }
+        header .logo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .nav {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+        .nav ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        .nav-left li {
+          margin-right: auto;
+        }
+        .nav-right li {
+          margin-left: auto;
+        }
+        .nav ul li {
+          margin-left: 20px;
+        }
+        .nav ul li:first-child {
+          margin-right: auto;
+        }
+        .nav ul li a {
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        .nav ul li a:hover {
+          color: #ddd;
+        }
+        main {
+          padding: 30px;
+        }
 
-.hidden {
-  display: none;
-}
 
-header {
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-  color: white;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-}
+        /*CARDS*/
+        .grid-container {
+        display:grid;
+        grid-template-columns: repeat(3, 1fr); /* Dois cards por linha */
+        gap: 50px;
+        } 
+                
+        .grid-item {
+        background-color: #ffffff;
+        padding: 15px;
+        box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+        display: flex; /* Adicione flexbox */
+        flex-direction: column; /* Organize os elementos em uma coluna */
+        justify-content: space-between; /* Espaço igual entre os elementos */
+        align-items: center;
+        text-align: center;
+        transition: box-shadow 0.3s ease; /* Transição para o efeito de fumaça */
+        border: 2px solid transparent; /* Borda transparente para evitar mudanças de layout */
+        }
 
-header .logo h1 {
-  margin: 0;
-  font-weight: 500;
-  display: inline;
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
-}
+        .grid-item:hover {
+        box-shadow: 0 0 15px 5px #add8e6; /* Sombra azul suave ao passar o mouse */
+        }
 
-header .logo {
-  text-align: center;
-}
+        .card-image {
+        width: 100%; /* Ajusta a largura da imagem para se ajustar ao card */
+        height: 200px; /* Adicione essa linha para manter a proporção da imagem */
+        max-height: 200px; /* Altura máxima para a imagem */
+        object-fit: cover; /* Faz com que a imagem cubra a área sem distorcer */
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+        }
 
-.nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+        .card {
+        background-color: #ffffff;
+        padding: 15px;
+        box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+        text-align: center;
+        border: 2px solid transparent;
+        transition: box-shadow 0.3s ease;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%; /* Preenche a altura */
+        }
 
-.nav ul {
-  list-style-type: none;
-  padding: 0;
-}
+      .card:hover {
+          box-shadow: 0 0 15px 5px #add8e6;
+        }
 
-.nav-left li {
-  margin-right: auto;
-}
+        .card-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0; /* Borda superior arredondada */
+        }
 
-.nav-right li {
-  margin-left: auto;
-}
+        .card-content {
+            flex-grow: 1; /* O conteúdo ocupa o espaço disponível */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px; /* Espaçamento interno */
+            text-align: center;
+        }
 
-.nav ul li {
-  margin-left: 20px;
-}
+        .card-title {
+            margin: 10px 0;
+            font-size: 20px;
+            text-align: center; /* Centralize o texto do título */
+        }
 
-.nav ul li:first-child {
-  margin-right: auto;
-}
+        .card-description {
+            font-size: 14px;
+            margin: 0; /* Removido o margin para um espaçamento mais uniforme */
+            text-align: justify;
+        }
 
-.nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+        .access-button {
+            padding: 5px 10px;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 10px auto 0; /* Espaçamento vertical para o botão, centralizado */
+            display: block; /* Para que o botão ocupe toda a largura disponível */
+            max-width: 150px; /* Largura máxima do botão */
+            text-align: center; /* Centralizar o texto no botão */
+        }
+              
 
-.nav ul li a:hover {
-  color: #ddd;
-}
+              /*MODAL*/
+              .modal {
+              display: none; /* Inicialmente oculto */
+              position: fixed; /* Posicionado em relação à janela */
+              left: 50%; /* Centralizado horizontalmente */
+              top: 55%; /* Centralizado verticalmente */
+              transform: translate(-50%, -50%); /* Ajusta para o centro exato */
+              background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+              width: 100%; /* Ocupa toda a largura */
+              height: 100%; /* Ocupa toda a altura */
+              overflow: auto; /* Habilita a rolagem se necessário */
+              z-index: 1000; /* Garante que o modal apareça acima de outros elementos */
+              }
 
-main {
-  padding: 30px;
-}
+              .modal-content {
+              background-color: #fff;
+              padding: 20px;
+              width: 80%;
+              max-width: 400px;
+              position: relative; /* Posiciona em relação ao modal */
+              margin: auto; /* Centraliza o conteúdo */
+              overflow-y: auto; /* Habilita a rolagem vertical se necessário */
+              max-height: 80%; /* Altura máxima para permitir rolagem */
+              }
 
-.about-section {
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
-  margin-bottom: 20px;
-  text-align: center;
-  width: 80%; /* Define a largura do card para 80% da largura total disponível */
-  margin: auto; /* Centraliza o card na página */
-}
+                .close-button {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
 
-.about-section h2 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 24px; /* Aumenta o tamanho da fonte */
-  font-weight: bold; /* Torna o texto negrito */
-}
+                #modal-title {
+                  /* Estilos adicionais para centralizar o título do modal */
+                  text-align: center;
+              }
 
-.about-section p {
-  font-size: 18px; /* Aumenta o tamanho da fonte */
-  color: rgb(0, 0, 0); /* Altera a cor do texto para azul */
-}
+              #study-sheet-button {
+              display: block;
+              margin: 10px auto;
+              background-color: #007bff;
+              color: white;
+              padding: 5px 10px;
+              cursor: pointer;
+              border: none;
+              text-align: center;
+              }
+              
+              #thematic-title {
+              text-align: center; /* Centraliza o texto horizontalmente */
+              margin: 10px 0; /* Adiciona margem acima e abaixo para espaçamento */
+              }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Exibe 3 cards por linha em telas grandes */
-  gap: 40px;
-  margin-top: 50px; /* Adicione esta linha */
-}
 
-@media screen and (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* Exibe 2 cards por linha em telas menores */
-  }
-}
+              #chapters-list {
+                  /* Remove a marcação de tópicos e centraliza os capítulos */
+                  list-style-type: none; /* Remove os marcadores da lista */
+                  padding-left: 0; /* Remove o padding esquerdo */
+                  text-align: center; /* Centraliza o texto */
+              }
 
-.card {
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
-  transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
-  border: 2px solid transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+              #chapters-list li {
+                  /* Estilos adicionais para os itens da lista de capítulos */
+                  margin: 5px 0; /* Espaçamento entre os capítulos */
+              }
 
-.card:hover {
-  box-shadow: 0 4px 15px 0 hsla(0, 0%, 0%, 0.1);
-  transform: scale(1.03);
-  border: 2px solid #00d4ff;
-}
 
-.grid-container article h2 {
-  text-align: center;
-  margin-top: 0;
-  font-size: 20px;
-  min-height: 60px; /* altura mínima para o título */
-}
+                /*RODAPÉ*/
+                footer {
+                  background-color: #333;
+                  color: white;
+                  text-align: center;
+                  padding: 1px 0;
+                  position:relative;
+                  margin-top: 30px;
+                  bottom: 0;
+                  width: 100%;
+                  font-size: 12px;
+                }
+                /*TELAS*/
+                @media screen and (max-width: 768px) {
+                            .grid-container {
+                                grid-template-columns: repeat(2, 1fr); /* Ajuste para telas menores */
+                            }
+                        }
+         </style>
+        </head>
+                <!-- ESTRUTURA DA PÁGINA DE LOGIN -->
+                <body class="login-body">
+                <div class="login-container" id="login">
+                <div class="login-form">
+                <h2>Área de Login</h2>
+                <form onsubmit="validateForm(event)">
+                <div class="input-container">
+                <input autocomplete="off" id="password" name="password" placeholder="Digite a senha" type="password"/>
+                <div class="show-password-container">
+                <input id="showPasswordCheckbox" type="checkbox"/> Mostrar Senha
+                                </div>
+                <input type="submit" value="Acessar"/>
+                </div>
+                </form>
+                </div>
+                </div>
 
-.grid-container article p {
-  font-size: 16px;
-  text-align: justify;
-  min-height: 100px; /* altura mínima para o resumo */
-}
+                <!-- ESTRUTURA DA PÁGINA DO MENU -->
+                <div class="hidden" id="content">
+                <header>
+                <div class="logo">
+                <h1>Materiais Complementares</h1>
+                </div>
+                <nav class="nav">
+                <ul class="nav-left">
+                <li><a href="mailto:ravell.lopes@gmail.com">Dúvidas, Opiniões e Sugestões</a></li>
+                </ul>
+                <ul class="nav-right">
+                <li><a href="#" onclick="logout()">Sair</a></li>
+                </ul>
+                </nav>
+                </header>
+                <main>
 
-.grid-container article .card-image {
-  width: 100%;
-  height: 200px; /* Altura desejada */
-  object-fit: cover;
-}
+                <!-- ESTRUTURA DOS GRIDS -->
+                <section class="grid-container">  
+                  
+                  <div class="card">
+                    <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/06/shutterstock_1571871052.jpg" alt="computador quântico sendo apresentado em detalhes" class="card-image">
+                    <h3 class="card-title">Computação Quântica</h3>
+                    <p class="card-description">A computação quântica está revolucionando a tecnologia. Seu pleno desenvolvimento possibilita que computadores nos proporcione uma capacidade de processamento, até então, nunca experimentada.</p>
+                    <button class="access-button" onclick="openModal('Computacao Quantica')">Acessar</button>
+                </div>
 
-.contact-form {
-  display: none;
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
-  max-width: 550px;
-  margin: 0 auto;
-  margin-top: 20px;
-}
+                  <div class="card">
+                    <img src="https://cdn.digitalisationworld.com/uploads/images/e28e964954ec59f31d488b039f1b574a76f4c1baf4322993.jpg" alt="inteligência artificial processando informações" class="card-image">
+                    <h3 class="card-title">Perigos Reais da Inteligência Artificial</h3>
+                    <p class="card-description">A inteligência artificial, apesar de seu potencial revolucionário, apresenta desafios significativos, exigindo regulamentações cuidadosas e conscientização da sociedade.</p>
+                    <button class="access-button" onclick="openModal('Perigos Reais da Inteligencia Artificial')">Acessar</button>
+                </div>
 
-.contact-form.open {
-  display: block;
-}
+                <div class="card">
+                  <img src="https://www.unite.ai/wp-content/uploads/2021/02/robots-thinking.jpg" alt="robôs atendendo pessoas em um call center" class="card-image">
+                  <h3 class="card-title">Empatia Artificial</h3>
+                  <p class="card-description">A empatia artificial compreende as emoções humanas, permitindo sistemas computacionais interagirem conosco de maneira inédita.</p>
+                  <button class="access-button" onclick="openModal('Empatia Artificial')">Acessar</button>
+              </div>
 
-.contact-form h2 {
-  margin-top: 0;
-  text-align: center;
-}
+                <div class="card">
+                  <img src="https://knowhow.distrelec.com/wp-content/uploads/2023/05/industry-5.0-1920x800.png" alt="quinta revolução industrial e suas vertentes" class="card-image">
+                  <h3 class="card-title">Quinta Revolução Industrial</h3>
+                  <p class="card-description">A quinta revolução industrial e as convergências de tecnologias disruptivas que estão transformando a economia global.</p>
+                  <button class="access-button" onclick="openModal('Quinta Revolucao Industrial')">Acessar</button>
+              </div>
+                
+                <div class="card">
+                  <img src="https://istoedinheiro.com.br/wp-content/uploads/sites/17/2023/02/81-1.jpg?x46096" alt="robô pensando com o auxílio da inteligência artificial" class="card-image">
+                  <h3 class="card-title">Correntes Filosóficas da Tecnologia</h3>
+                  <p class="card-description">As correntes filosóficas da tecnologia abrangem diferentes perspectivas sobre o impacto e o papel da tecnologia na sociedade.</p>
+                  <button class="access-button" onclick="openModal('Correntes Filosoficas da Tecnologia')">Acessar</button>
+              </div>
 
-.contact-form input[type="text"],
-.contact-form input[type="email"] {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
-  width: 100%;
-}
+              <!-- Modal para exibir os capítulos -->
+              <div id="chapters-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <h3 id="thematic-title"></h3>
+                    <a class="access-button" href="#" id="study-sheet-link" target="_blank">Ficha de Estudo</a><!-- Link para a ficha de estudo -->
+                    <h4 id="modal-title">Capítulos</h4>
+                    <div id="chapters-list"></div>
+                </div>
+              </div>
 
-.contact-form textarea {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.1);
-  width: 100%;
-  height: 150px;
-  resize: vertical;
-}
+              <!-- QUINTA REVOLUÇÃO INDUSTRIAL -->
+              <div id="Quinta Revolucao Industrial" class="modal">
+                <div class="modal-content">
+                  <span class="close-button" onclick="closeModal()">&times;</span>
+                  <h3 id="Quinta Revolução Industrial"></h3>
+                  <a class="access-button" href="#" id="empathy-study-sheet-link" target="_blank">Ficha de Estudo</a>
+                  <h4 id="empathy-modal-title">Capítulos</h4>
+                  <div id="empathy-chapters-list"></div>
+                </div>
+              </div>
 
-.contact-form input[type="submit"] {
-  padding: 5px 10px;
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-bottom: 10px;
-  display: block;
-  max-width: 200px;
-  margin: 0 auto;
-}
+              <!-- EMPATIA ARTIFICIAL -->
+              <div id="Empatia Artificial" class="modal">
+                <div class="modal-content">
+                  <span class="close-button" onclick="closeModal()">&times;</span>
+                  <h3 id="Empatia Artificial"></h3>
+                  <a class="access-button" href="#" id="empathy-study-sheet-link" target="_blank">Ficha de Estudo</a>
+                  <h4 id="empathy-modal-title">Capítulos</h4>
+                  <div id="empathy-chapters-list"></div>
+                </div>
+              </div>
 
-.contact-form input[type="submit"]:hover {
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
-}
+              <!-- PERIGOS REAIS DA INTELIGÊNCIA ARTIFICIAL -->
+              <div id="Perigos Reais da Inteligencia Artificial" class="modal">
+                <div class="modal-content">
+                  <span class="close-button" onclick="closeModal()">&times;</span>
+                  <h3 id="Perigos Reais da Inteligência Artificial"></h3>
+                  <a class="access-button" href="#" id="empathy-study-sheet-link" target="_blank">Ficha de Estudo</a>
+                  <h4 id="empathy-modal-title">Capítulos</h4>
+                  <div id="empathy-chapters-list"></div>
+                </div>
+              </div>
 
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  font-size: 14px;
-}
+              <!-- COMPUTAÇÃO QUÂNTICA -->
+              <div id="Computacao Quantica" class="modal">
+                <div class="modal-content">
+                  <span class="close-button" onclick="closeModal()">&times;</span>
+                  <h3 id="Computação Quântica"></h3>
+                  <a class="access-button" href="#" id="empathy-study-sheet-link" target="_blank">Ficha de Estudo</a>
+                  <h4 id="empathy-modal-title">Capítulos</h4>
+                  <div id="empathy-chapters-list"></div>
+                </div>
+              </div>
 
-.article-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.article-container h2 {
-  margin-top: 0;
-  width: auto;
-}
-
-.article-container audio {
-  width: 300px;
-  margin: 20px 0;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.article-container .access-link {
-  padding: 5px 10px;
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-bottom: 10px;
-  display: block;
-  max-width: 200px;
-  margin: 0 auto;
-}
-
-.article-container .access-link:hover {
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 35%, rgba(9, 9, 121, 1) 100%);
-}
-  </style>
-</head>
-<body>
-  <div id="login" class="login-container">
-    <div class="login-form">
-      <h2>Área de Login</h2>
-     
-      <form onsubmit="validateForm(event)">
-        <div style="display: flex; justify-content: center; align-items: center;">
-          <input type="password" id="password" name="password" placeholder="Digite a senha" style="width: 80%; text-align: center;" autocomplete="off">
-        </div>
-        <div style="text-align: right; font-size: 0.8em;">
-          <input type="checkbox" id="showPasswordCheckbox"> Mostrar Senha
-        </div>
-        <input type="submit" value="Acessar">
-      </form>
-
-    </div>
-  </div>
-
-  <div id="content" class="hidden">
-    <header>
-      <div class="logo">
-        <h1>Materiais Complementares</h1>
-      </div>
-      <nav class="nav">
-        <ul class="nav-left">
-          <li><a href="mailto:ravell.lopes@gmail.com">Dúvidas, Opiniões e Sugestões</a></li>
-        </ul>
-        <ul class="nav-right">
-          <li><a href="#" onclick="logout()">Sair</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <img src=""professor" style="float: right; width: 9.5%;margin-right: auto; transform: rotate(5.5deg);"> <!-- Ajuste o valor de rotate() conforme necessário -->
-
-    <section id="sobre" class="about-section">
-      <section id="sobre" class="about-section">
-        <h2>Informações</h2>
-        <p>Nesse espaço você encontra dados complementares dos assuntos abordados em aula.</p>
         </section>
-
-    <section class="grid-container">
-
-      <article class="grid-item">
-        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/ZBwHt0YOzh4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Computação Quântica</h2>
-        <p>A computação quântica está revolucionando a tecnologia. Seu pleno desenvolvimento possibilita que computadores nos proporcione uma capacidade de processamento, até então, nunca experimentada.</p>
-        <div class="article-container">
-          <div class="button-container">
-            <a href="https://drive.google.com/file/d/1SxDkffCabGUqS6fbZmy1FIVe10kuQKe9/view?usp=sharing" target="_blank" class="download-button">Ficha de Estudo</a>
-          </div>
         </div>
-      </article>  
 
-      <article class="grid-item">
-        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/nE_zy8zHOCg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Perigos Reais da Inteligência Artificial</h2>
-        <p>A inteligência artificial, apesar de seu potencial revolucionário, apresenta desafios significativos, exigindo regulamentações cuidadosas e conscientização da sociedade.</p>
-        <div class="article-container">
-          <div class="button-container">
-            <a href="https://drive.google.com/file/d/1gcAKVjROMvaoqbcCobdSMU2bqFcFAaOI/view?usp=sharing" target="_blank" class="download-button">Ficha de Estudo</a>
-          </div>
-        </div>
-      </article>
-      
-      <article class="grid-item">
-        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/wQizTcj1hew" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Empatia Artificial</h2>
-        <p>A empatia artificial compreende as emoções humanas, permitindo sistemas computacionais interagirem conosco de maneira inédita.</p>
-        <div class="article-container">
-          <div class="button-container">
-            <a href="https://drive.google.com/file/d/1hILmn-K_lxTrctKfcB7IbWjqLz5LuqX4/view?usp=sharing" target="_blank" class="download-button">Ficha de Estudo</a>
-          </div>
-        </div>
-      </article>
+        <!-- RODAPÉ -->
+        <footer>
+        <p>© 2023 Direitos reservados.</p>
+        </footer>
 
-      <article class="grid-item">
-        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/rQizFGMqdY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Quinta Revolução Industrial</h2>
-        <p>A quinta revolução industrial e as convergências de tecnologias disruptivas que estão transformando a economia global.</p>
-        <div class="article-container">
-          <div class="button-container">
-            <a href="https://drive.google.com/file/d/16pPVZT6y-Hv6wMxUrXqZPdyJgT9g_1xI/view?usp=sharing" target="_blank" class="download-button">Ficha de Estudo</a>
-          </div>
-        </div>
-      </article>
+        </section>
+        <script>
 
-      <article class="grid-item">
-        <iframe class="card-image" width="100%" height="200" src="https://www.youtube.com/embed/3E0VhkoJnd4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h2>Correntes Filosóficas da Tecnologia</h2>
-        <p>As correntes filosóficas da tecnologia abrangem diferentes perspectivas sobre o impacto e o papel da tecnologia na sociedade.</p>
-        <div class="article-container">
-          <div class="button-container">
-            <a href="https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view?usp=sharing" target="_blank" class="download-button">Ficha de Estudo</a>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2023 Direitos reservados.</p>
-  </footer>
-  </div>
-  
-<section id="contato" class="contact-form">
-  <h2>Contato</h2>
-  <form>
-    <input type="text" name="name" placeholder="Seu nome">
-    <input type="email" name="email" placeholder="Seu email">
-    <textarea name="message" placeholder="Sua mensagem"></textarea>
-    <input type="submit" value="Enviar">
-  </form>
-</section>
+                // MECANISMO DA TELA DE LOGIN
+                document.getElementById('showPasswordCheckbox').addEventListener('change', function() { // Altere esta linha
+                  var passwordInput = document.getElementById('password');
+                  if (this.checked) {
+                    passwordInput.type = 'text';
+                  } else {
+                    passwordInput.type = 'password';
+                  }
+                });
 
-<script>
-document.getElementById('showPasswordCheckbox').addEventListener('change', function() { // Altere esta linha
-  var passwordInput = document.getElementById('password');
-  if (this.checked) {
-    passwordInput.type = 'text';
-  } else {
-    passwordInput.type = 'password';
-  }
-});
+                function validateForm(event) {
+                  event.preventDefault();
+                  var password = document.getElementById('password').value;
+                  if (password === 'aluno') {
+                    document.getElementById('login').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
+                  } else {
+                    alert('Senha incorreta! Por favor, tente novamente.');
+                  }
+                }
 
-function validateForm(event) {
-  event.preventDefault();
-  var password = document.getElementById('password').value;
-  if (password === 'aluno') {
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('content').style.display = 'block';
-  } else {
-    alert('Senha incorreta! Por favor, tente novamente.');
-  }
-}
+                function logout() {
+                  document.getElementById('content').style.display = 'none';
+                  document.getElementById('login').style.display = 'flex';
+                  document.getElementById('password').value = '';
+                }
 
-function logout() {
-  document.getElementById('content').style.display = 'none';
-  document.getElementById('login').style.display = 'flex';
-  document.getElementById('password').value = '';
-}
+                // MECANISMO DOS MODAIS
+                currentThematic = thematic; // Armazena a temática atual
 
-</script>
-</body>
-</html>
+                function openModal(thematic) {
+                    var modal = document.getElementById('chapters-modal');
+                    var thematicTitle = document.getElementById('thematic-title');
+                    var studySheetLink = document.getElementById('study-sheet-link'); // Obtém o link da ficha de estudo
+                    var chaptersList = document.getElementById('chapters-list');
+                    chaptersList.innerHTML = "";
+
+                    currentThematic = thematic;
+
+    
+                    // COMPUTAÇÃO QUÂNTICA
+                    if (thematic === 'Computacao Quantica') {
+                    thematicTitle.textContent = 'Computação Quântica'; // Define o título da temática                              
+                    studySheetLink.href = 'https://drive.google.com/file/d/1SxDkffCabGUqS6fbZmy1FIVe10kuQKe9/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/15aAFITipg-szbBIlbDmfMJ1EaZIygm9e/preview' },
+                    { title: 'Definições e Conceitos Fundamentais <br> da Computação Quântica', audioLink: 'https://drive.google.com/file/d/1kXgVWFArBAFuvKYWoxblxGRR7KHEH5by/preview' },
+                    { title: 'Princípios Fundamentais', audioLink: 'https://drive.google.com/file/d/1pvfc-XV_8iLR3Wmw3V-znd6cdtUxnO6n/preview' },
+                    { title: 'Tipos de Computadores', audioLink: 'https://drive.google.com/file/d/1RjGWf7SELKhqAN_jWHGlyyKBRXbiKmqk/preview' },
+                    { title: 'Feitos Importantes dos Computadores Quânticos', audioLink: 'https://drive.google.com/file/d/1elFCDUbbeEJ3w0KKSb-oVGm9CoMS66bj/preview' },
+                    { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/1NeAwPMOwlM8gNY1l9OwCecweZFjTqByX/preview' },
+                    { title: 'Diferença Entre Computadores', audioLink: 'https://drive.google.com/file/d/1b-PkXE7dCHYFM7rAb4CoaIBHUUbZGq-3/preview' },
+                    { title: 'Principais Computadores Quânticos em Operação', audioLink: 'https://drive.google.com/file/d/1JjJqvQ573yEmmywZgaCIIiy8rgVG42V-/preview' },         
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1j3O8jKp_wA3isb77FBTfKW9TpUUVp-5D/preview' },         
+                              
+                    
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática     
+
+    
+                    // PERIGOS REAIS DA INTELIGÊNCIA ARTIFICIAL
+                    if (thematic === 'Perigos Reais da Inteligencia Artificial') {
+                    thematicTitle.textContent = 'Perigos Reais da Inteligência Artificial'; // Define o título da temática                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1gcAKVjROMvaoqbcCobdSMU2bqFcFAaOI/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SaByxC6caOXL6NicEFghbfR8a0P8GM3x/preview' },
+                    { title: 'Viés Algorítmico', audioLink: 'https://drive.google.com/file/d/1fJjckZm65UerRFi5xOR4F0aZOPvkfasb/preview' },
+                    { title: 'Manipulação de Mídia', audioLink: 'https://drive.google.com/file/d/1fFZ3RrqlNNZzHIOovMNMFfAzAIQ0_jht/preview' },
+                    { title: 'Desemprego em Massa', audioLink: 'https://drive.google.com/file/d/1fNDN4TmZiEmZ6qWTkNfEIDWSial_hr5e/preview' },
+                    { title: 'Ataques Cibernéticos a Sistemas de Inteligência Artificial', audioLink: 'https://drive.google.com/file/d/1EKy1qNEsG-YpOe0fY81z-7TpTx8zXO6H/preview' },
+                    { title: 'Uso Indevido de Dados Pessoais', audioLink: 'https://drive.google.com/file/d/1q0MsMc_B_LoBwWnhPxGwMIkB32_z-pHp/preview' },
+                    { title: 'Risco de Armas Autônomas', audioLink: 'https://drive.google.com/file/d/1ut3yX_DPkR_MnWD-bf5FD3eauJgvx6sW/preview' },
+                    { title: 'Risco de Manipulação Política', audioLink: 'https://drive.google.com/file/d/1XZDPaHy5WWEIX8Mj5hlciiBWyjFoIA6u/preview' },
+                    { title: 'Deterioração das Habilidades Humanas', audioLink: 'https://drive.google.com/file/d/18EFeyKzCn8UZAnlHMyo5mBWuQVX-VFX2/preview' },
+                    { title: 'Discriminação Algorítmica', audioLink: 'https://drive.google.com/file/d/14PmINgeUDsXODMjmTfpFG7cvoHl95I8h/preview' },
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1wqmOboVnEEbVj0S88nBpYzNMOMGe3EIc/preview' },         
+                              
+                    
+                ];
+            } else if (thematic === 'matematica') {
+                chapters = [
+                    { title: 'Álgebra', audioLink: 'LINK3' },
+                    { title: 'Geometria', audioLink: 'LINK4' },
+                    
+                ];
+            }
+            // fim da temática
+
+            // EMPATIA ARTIFICIAL
+            if (thematic === 'Empatia Artificial') {
+              thematicTitle.textContent = 'Empatia Artificial'; // Define o título da temática      
+              studySheetLink.href = 'https://drive.google.com/file/d/1hILmn-K_lxTrctKfcB7IbWjqLz5LuqX4/view?usp=sharing'; // Define o link da ficha de estudo
+                chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1SDekTVOquSBtuU2jIQMqsbFveSDEt_rB/preview' },
+                    { title: 'Processamento de Linguagem Natural', audioLink: 'https://drive.google.com/file/d/1h2VVBidxt71i96Ybcn6tiOWvYCFbZDXX/preview' },
+                    { title: 'Modelos de Personalidade', audioLink: 'https://drive.google.com/file/d/1yM2xEcuC01LoIY1fWtogXEJ1UgS3lggE/preview' },
+                    { title: 'Geração de Respostas Empáticas', audioLink: 'https://drive.google.com/file/d/1O4CY4SVBHdw_qR4DW9GKNilaAtiT1lJL/preview' },
+                    { title: 'Ética e Privacidade', audioLink: 'https://drive.google.com/file/d/11INZFih2QViccNHCJglO39aJBxqQqly0/preview' },
+                    { title: 'Aplicações Práticas', audioLink: 'https://drive.google.com/file/d/12gXeVO8Xhe2-hqyvxoGSZx6fHw8RQT6z/preview' },
+                    { title: 'Limitações Atuais', audioLink: 'https://drive.google.com/file/d/11svAvslns1v64fiVwSfodcJH6dxnwWph/preview' },
+                    { title: 'Futuro da Empatia Artificial', audioLink: 'https://drive.google.com/file/d/1f6qJMC35hi42yXpPdqHchblRmfDfxA1n/preview' },
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1XEOB4OFIvsAn6VWP7rPkbU2exZT63MIS/preview' },         
+                              
+                    
+                ];
+            } else if (thematic === 'matematica') {
+                chapters = [
+                    { title: 'Álgebra', audioLink: 'LINK3' },
+                    { title: 'Geometria', audioLink: 'LINK4' },
+                    
+                ];
+            }
+            // fim da temática
+    
+            // QUINTA REVOLUÇÃO INDUSTRIAL
+            if (thematic === 'Quinta Revolucao Industrial') {
+              thematicTitle.textContent = 'Quinta Revolução Industrial'; // Define o título da temática
+              studySheetLink.href = 'https://drive.google.com/file/d/16pPVZT6y-Hv6wMxUrXqZPdyJgT9g_1xI/view?usp=sharing'; // Define o link da ficha de estudo
+                chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/11ogT4muDXEF34lUK1MNwtObOWgOPMUY_/preview' },
+                    { title: 'Rede 6G', audioLink: 'https://drive.google.com/file/d/17DYgj_wkL9ZKks3uP1QDtAf6kaxG38XS/preview' },
+                    { title: 'Internet Quântica', audioLink: 'https://drive.google.com/file/d/1BLaZ6D9tJAcjE68w_Z2rBT9uGtHKfAP9/preview' },
+                    { title: 'Inteligência Artificial das coisas', audioLink: 'https://drive.google.com/file/d/1FOu7Ord771Ttzxsg5Rdu_bveVTyJKjDZ/preview' },
+                    { title: 'Web 3.0', audioLink: 'https://drive.google.com/file/d/1aOMCYRIbm7TUXS2SwaMWvv3tX1z_hvlk/preview' },
+                    { title: 'Smart Grid', audioLink: 'https://drive.google.com/file/d/1PwvDDCK8g_JQCc1S23ig1yAXLRFxNetG/preview' },
+                    { title: 'Transmissão de Energia Sem Fio', audioLink: 'https://drive.google.com/file/d/1DHLNyLFTXlGlEQZILzlcdJ2vOVrJl5bH/preview' },
+                    { title: 'Cidades Inteligentes', audioLink: 'https://drive.google.com/file/d/1wqLJnbepTfeFiPiklD-haO8HRkaxhgVQ/preview' },
+                    { title: 'Impressão 4D', audioLink: 'https://drive.google.com/file/d/1jBsPks9e5jH9T_up5RwZhR8YGHkCQNuD/preview' },
+                    { title: 'Gêmeo Digital', audioLink: 'https://drive.google.com/file/d/1QrcZAYcJIF7uMEwiwsP77pdfRwZxnoJa/preview' },
+                    { title: 'Metamateriais', audioLink: 'https://drive.google.com/file/d/1zIU28k_JV3xr2npiFM1epZOGT5uz_sb_/preview' },
+                    { title: 'Robótica de Drone e Drones Aquáticos', audioLink: 'https://drive.google.com/file/d/1FVgg3lYgbB59WgyXfQ4Q3m8tKYT7u2SD/preview' },
+                    { title: 'Tecnologia de Predição', audioLink: 'https://drive.google.com/file/d/1gHBDFKnlj3t3WWZ88BN5qlqSCnIOW3ID/preview' },
+                    { title: 'Armazenamento em DNA', audioLink: 'https://drive.google.com/file/d/1VA1IHeJyIEGmMGnqA5Us3Lh-JJb2DpWp/preview' },
+                    { title: 'Comida Sintética', audioLink: 'https://drive.google.com/file/d/1WTC98S1vGrQg6S-Ijk9Uuw0Z4dbOgTj8/preview' },
+                    { title: 'Metaverso', audioLink: 'https://drive.google.com/file/d/1Tq5memGhrxmmqC708laUSWTFw4riTzI6/preview' },
+                    { title: 'Interface Cérebro-Máquina', audioLink: 'https://drive.google.com/file/d/1X_vJ-YaIBa-jscO-5UzQbHtf_-bDK2Xc/preview' },
+                    { title: 'Smart Glass', audioLink: 'https://drive.google.com/file/d/1_CRB3yNAG-nzwGE3JdHLSfFdt2geo-d4/preview' },
+                    { title: 'Realidade Háptica', audioLink: 'https://drive.google.com/file/d/1IBfm_EfNI6m0SvbZ0EhAr8XCoQmTuW10/preview' },
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1Kz2wwhSOPrtQ8ppFZwxdr7NE2dSzDXOM/preview' },
+                    
+
+                    
+                ];
+            } else if (thematic === 'matematica') {
+                chapters = [
+                    { title: 'Álgebra', audioLink: 'LINK3' },
+                    { title: 'Geometria', audioLink: 'LINK4' },
+                    
+                ];
+            }
+            // fim da temática
+    
+            // CORRENTES FILOSÓFICAS DA TECNOLOGIA
+            if (thematic === 'Correntes Filosoficas da Tecnologia') {
+              thematicTitle.textContent = 'Correntes Filosóficas da Tecnologia'; // Define o título da temática
+              studySheetLink.href = 'https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view?usp=sharing'; // Define o link da ficha de estudo
+                chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1pVe8Sq683MwY1eniOKLtkGMIPGvS2PQI/preview' },
+                    { title: 'Cyberpunk', audioLink: 'https://drive.google.com/file/d/1wy-uS7d043OgSrXzY24nOXCjzbTJDNGR/preview' },
+                    { title: 'Cypherpunk', audioLink: 'https://drive.google.com/file/d/1ITWf76GB4tq-n8LueoTBEWI9-M7lr2hE/preview' },
+                    { title: 'Dataísmo', audioLink: 'https://drive.google.com/file/d/1NVUjrQGsW4_oQRJQvr4mtUCkPIVv9Prw/preview' },
+                    { title: 'Transumanismo', audioLink: 'https://drive.google.com/file/d/1_jHxbP1uTxnqBCbn90MIAl1a2UjiuopO/preview' },
+                    { title: 'Biohacking', audioLink: 'https://drive.google.com/file/d/1SutEQoD1wTPMzekDnX-Lum-cqA9BgM0b/preview' },
+                    { title: 'Ludologia Filosófica', audioLink: 'https://drive.google.com/file/d/1237bbhlaIdPkuLWPbwMVsq7giWAhPFEX/preview' },
+                    { title: 'Anarquismo Digital', audioLink: 'https://drive.google.com/file/d/1_Vc2xSyCNH8D1J_7fkHLCfsds4PT7q-4/preview' },
+                    { title: 'Tecnofeminismo', audioLink: 'https://drive.google.com/file/d/1KEPK16yc339-vPGcX1QG8vdQsSd6fIIy/preview' },
+                    { title: 'Filosofia da Cibernética', audioLink: 'https://drive.google.com/file/d/197R4vU27WWDQ-U8X2hECLOL-s3r_p_9C/preview' },
+                    { title: 'Neo-Luddismo', audioLink: 'https://drive.google.com/file/d/1Iu9H5WvPkmoPeA87HyWenxdHfaDkGoGF/preview' },
+                    { title: 'Technogaianismo', audioLink: 'https://drive.google.com/file/d/1KYyCBBsD_ifPHsVlEwzlPmCxKDS3lTzO/preview' },
+                    { title: 'Singularidade Tecnológica', audioLink: 'https://drive.google.com/file/d/1Ld_pHGRsGklBySiXqfHIY8VvuxGikwnO/preview' },          
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1oHdU8F7wp7uroCUKQZXJ94VXeTk9kUTx/preview' },
+
+                    
+                ];
+            } else if (thematic === 'matematica') {
+                chapters = [
+                    { title: 'Álgebra', audioLink: 'LINK3' },
+                    { title: 'Geometria', audioLink: 'LINK4' },
+                    
+                ];
+            }
+            // fim da temática
+
+            // MECANISMO QUE ADICIONA CAPÍTULOS AO MODAL
+            chapters.forEach(function(chapter) {
+                var div = document.createElement('div');
+                div.innerHTML = `<h5>${chapter.title}</h5>
+                                <iframe src="${chapter.audioLink}" width="100%" height="50" frameborder="0"></iframe>`;
+                chaptersList.appendChild(div);
+            });
+
+            modal.style.display = 'block';
+        }
+
+
+        function closeModal() {
+            var modal = document.getElementById('chapters-modal');
+            modal.style.display = 'none';
+        }
+
+        function openStudySheet() {
+            var pdfLink;
+
+            // MECANISMO PARA DEFINIR O LINK PDF PARA CADA TEMÁTICA
+            if (currentThematic === 'Correntes Filosoficas da Tecnologia') {
+                pdfLink = 'https://drive.google.com/file/d/15Kckxw8Q56PJzPvr_aLb-buXU2Uac6xY/view?usp=sharing';
+              } else if (thematic === 'matematica') {
+                thematicTitle.textContent = 'Temática: Matemática';
+                studySheetLink.href = 'https://drive.google.com/file/d/FILE_ID2/uc?export=download'; // Define o link da ficha de estudo
+                
+            }
+            // Adicione mais condições para outras temáticas aqui
+
+            modal.style.display = 'block';
+        }
+      </script>
