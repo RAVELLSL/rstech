@@ -345,6 +345,13 @@
                 <section class="grid-container">  
                   
                   <div class="card">
+                    <img src="https://blog.techdesign.com/wp-content/uploads/2022/03/shutterstock_1905576991_R1-1024x585.jpg" alt="computador quântico sendo apresentado em detalhes" class="card-image">
+                    <h3 class="card-title">Cloud, Fog e Edge Computing</h3>
+                    <p class="card-description">Cloud, Fog e Edge Computing são paradigmas transformadores na computação moderna. Juntos estão transformando a infraestrutura de serviços da internet.</p>
+                    <button class="access-button" onclick="openModal('Cloud Fog e Edge Computing')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
                     <img src="https://img.olhardigital.com.br/wp-content/uploads/2021/06/shutterstock_1571871052.jpg" alt="computador quântico sendo apresentado em detalhes" class="card-image">
                     <h3 class="card-title">Computação Quântica</h3>
                     <p class="card-description">A computação quântica está revolucionando a tecnologia. Seu pleno desenvolvimento possibilita que computadores nos proporcione uma capacidade de processamento, até então, nunca experimentada.</p>
@@ -485,6 +492,43 @@
                     currentThematic = thematic;
 
     
+                    // CLOUD, FOG E EDGE COMPUTING
+                    if (thematic === 'Cloud Fog e Edge Computing') {
+                    thematicTitle.textContent = 'Cloud, Fog e Edge Computing'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1kclMO4dekprxzhN446IrJDrBOLTIITrQ/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                    { title: 'Cloud, Fog e Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1L4tKt7OeAAWMeskp_RDxs5joQmlTTEm4/preview' },
+                    { title: 'O que é Cloud Computing?', audioLink: 'https://drive.google.com/file/d/1F12tq6P-aROzUK8TXK6fdN0IUCTEe84U/preview' },
+                    { title: 'Evolução da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1TMZ4JxYk4JLQPowYzc2ByFuOxcJmMv4s/preview' },
+                    { title: 'Benefícios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1d-_JhgZmOT7ohKmVwiPoU5SDLQyCViQd/preview' },
+                    { title: 'Tipos de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1nEWU7PSchLjWPmLyYArAiZbNufx2_Xo7/preview' },
+                    { title: 'Arquiteturas de Cloud Computing', audioLink: 'https://drive.google.com/file/d/1GHi0fW7OEnZLEcj8keOjfeV1w-b5XoCm/preview' },
+                    { title: 'Desafios da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1ZgkuzXHXKr-p_9iojI-X54cyyBA9QEyR/preview' },
+                    { title: 'Tendências da Cloud Computing', audioLink: 'https://drive.google.com/file/d/1Jh9WWKI5pTohuSXq8PqKtE5tOepVoQGe/preview' },         
+                    { title: 'Cloud Computing (síntese)', audioLink: 'https://drive.google.com/file/d/199IOgLihcB69HEPTTzyF-OIq12NVrLFa/preview' },
+                    { title: 'Fog Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1wvxNvimJ0y52W38GuJ5AFuEUznTscP5Q/preview' },
+                    { title: 'O que é Fog Computing?', audioLink: 'https://drive.google.com/file/d/1CzCj2Dfi4GSxt1CdlK_8xqSsxbqK2Z1L/preview' },
+                    { title: 'Diferenças entre Fog Computing e Cloud Computing', audioLink: 'https://drive.google.com/file/d/1pekQkaaqcAN1NoAmuLUnkCaKjxH6apwW/preview' },
+                    { title: 'Benefícios da Fog Computing', audioLink: 'https://drive.google.com/file/d/1ljMwHPdvg8TYnPwCJI0mV-rsJ-tTnD6G/preview' },
+                    { title: 'Desafios do Fog Computing', audioLink: 'https://drive.google.com/file/d/12xkmMtyT2Qe_U87b4j09gFiRGKDPd1Ub/preview' },
+                    { title: 'Tendências do Fog Computing', audioLink: 'https://drive.google.com/file/d/1rn34q6oa5Bby4pCC2GowRJP5gh6yvKNz/preview' },
+                    { title: 'Edge Computing (introdução)', audioLink: 'https://drive.google.com/file/d/1x_jHXpB3aUWqkYTkVrpE2siT82a5tlZk/preview' },
+                    { title: 'Conceitos e Características', audioLink: 'https://drive.google.com/file/d/1jO2R34Fr9bebH3dOlRXp9vmhGToi7j9v/preview' },         
+                    { title: 'Arquitetura do Edge Computing', audioLink: 'https://drive.google.com/file/d/1P36qyNiJkR98TDaoRBTsm3r8PzAiHFxN/preview' },
+                    { title: 'Aplicações do Edge Computing', audioLink: 'https://drive.google.com/file/d/1-mpRyW-z7hCBiT20f5MO-yEm50jbc6vg/preview' },
+                    { title: 'Desafios e Oportunidades do Edge Computing', audioLink: 'https://drive.google.com/file/d/17TjNWr0viFfEJziTf87JObHjTt7fTjbp/preview' },         
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1miJLZSg6qG5DPE_Pi_L7LkK08qBztb2O/preview' },         
+                              
+                    
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática     
+                    
                     // COMPUTAÇÃO QUÂNTICA
                     if (thematic === 'Computacao Quantica') {
                     thematicTitle.textContent = 'Computação Quântica'; // Define o título da temática                              
