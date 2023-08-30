@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -344,6 +345,14 @@
                 <!-- ESTRUTURA DOS GRIDS -->
                 <section class="grid-container">  
                   
+
+                  <div class="card">
+                    <img src="https://cdn.brandfolder.io/3RTTK3BV/at/j6nrt3s369gm7snb767j8p25/iStock-1206796363_web-social.auto" alt="junção do ser humano com sistemas de inteligência artigicial e robótica avançada." class="card-image">
+                    <h3 class="card-title">Simbiose Homem-Máquina</h3>
+                    <p class="card-description">A simbiose homem-máquina refere-se à integração harmoniosa entre capacidades humanas e tecnologias avançadas, criando um sistema híbrido que potencializa as habilidades de ambos. Esta relação colaborativa abre novas portas para inovação, eficiência e resolução de problemas complexos..</p>
+                    <button class="access-button" onclick="openModal('Simbiose Homem Maquina')">Acessar</button>
+                </div>
+
                   <div class="card">
                     <img src="https://blog.techdesign.com/wp-content/uploads/2022/03/shutterstock_1905576991_R1-1024x585.jpg" alt="computador quântico sendo apresentado em detalhes" class="card-image">
                     <h3 class="card-title">Cloud, Fog e Edge Computing</h3>
@@ -492,6 +501,37 @@
                     currentThematic = thematic;
 
     
+                     // CLOUD, FOG E EDGE COMPUTING
+                     if (thematic === 'Simbiose Homem Maquina') {
+                    thematicTitle.textContent = 'Simbiose Homem-Máquina'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1fPDlOZjwyYhUz2kCCRicqhDp7KYKWv7T/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                    { title: 'Introdução', audioLink: 'https://drive.google.com/file/d/1JHyKC1WaNFeEPRDQ0lNRhJiNTPI7CpBZ/preview' },
+                    { title: 'Conceitos Gerais', audioLink: 'https://drive.google.com/file/d/1EAz9QrZXnSlItjVprSTOf9LOcHz33Wyt/preview' },
+                    { title: 'Origem', audioLink: 'https://drive.google.com/file/d/1tjufzeuj2GJXkmG0vE8KA5qmoQeGukDD/preview' },
+                    { title: 'Avanços ao Longo do Tempo', audioLink: 'https://drive.google.com/file/d/16Z8MxQ_RZcSr2jnqSqc3pVDmc1OCDHh-/preview' },
+                    { title: 'Estruturação', audioLink: 'https://drive.google.com/file/d/1IwC1Z2_KulBN9KyzxZeRGae5qs4fIH8i/preview' },
+                    { title: 'Áreas de Impacto', audioLink: 'https://drive.google.com/file/d/1ZteOOfDZiE8UIm3RG0kVSg8_qWbGLPrZ/preview' },
+                    { title: 'Vantagens', audioLink: 'https://drive.google.com/file/d/1fsJnN80BdnL98yuNtzIO3Bt6yR2MzkgS/preview' },
+                    { title: 'Perigos', audioLink: 'https://drive.google.com/file/d/18u7ySPHW3Hyb42PQlffVoPPVmipLD5j7/preview' },         
+                    { title: 'Questões Éticas', audioLink: 'https://drive.google.com/file/d/1t5U6ho5ABO0jHpPy2BLNM6MdnPt2Pmt8/preview' },
+                    { title: 'Segurança Digital', audioLink: 'https://drive.google.com/file/d/1CK9uKAfuL4k0yk2r5wKV5ugIM5Ddg5Ou/preview' },
+                    { title: 'Correlação com Outras Tecnologias', audioLink: 'https://drive.google.com/file/d/13ubVd-8qn930gAxek11xE8XdKZMR3dfj/preview' },
+                    { title: 'Futuro da Tecnologia Homem-Máquina', audioLink: 'https://drive.google.com/file/d/1GeRW0-zEFYofLCVmirYg_BDqYnvLWbgU/preview' },
+                    { title: 'Conclusão', audioLink: 'https://drive.google.com/file/d/1_JJPDRZmT3L9Q3R9ki2IjtR4pb0_3sSF/preview' },
+                             
+                              
+                    
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática     
+                    
+                    
                     // CLOUD, FOG E EDGE COMPUTING
                     if (thematic === 'Cloud Fog e Edge Computing') {
                     thematicTitle.textContent = 'Cloud, Fog e Edge Computing'; // Define o título da temática                                                  
