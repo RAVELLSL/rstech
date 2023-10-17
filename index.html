@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -347,6 +348,41 @@
                   
 
                   <div class="card">
+                    <img src="https://s2-epocanegocios.glbimg.com/ejKjJ3MYj1Wi7YyW623ExJPTW4s=/0x0:620x350/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e536e40f1baf4c1a8bf1ed12d20577fd/internal_photos/bs/2022/c/z/4MlgZMQ3i9a82UldjOcA/2022-08-19-gettyimages-1393548977-1.jpeg" alt="disrupção tecnológica o início de uma nova fase." class="card-image">
+                    <h3 class="card-title">Pontos de Ruptura Tecnológica na 5ª Revolução Industrial</h3>
+                    <p class="card-description">Material impresso disponível. Áudio explicativo da temática em breve!</p>
+                    <button class="access-button" onclick="openModal('Rupturas')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
+                    <img src="https://img.freepik.com/fotos-premium/um-laptop-com-a-palavra-mac-na-tela_905510-7227.jpg" alt="sistema de classificação computacional com vários tipos de computadores e usabilidade diferente." class="card-image">
+                    <h3 class="card-title">Sistema de Classificação Computacional</h3>
+                    <p class="card-description">Material impresso disponível. Áudio explicativo da temática em breve!</p>
+                    <button class="access-button" onclick="openModal('Sistema Computacional')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
+                    <img src="https://img.olhardigital.com.br/wp-content/uploads/2023/07/cerebro_chip.jpg" alt="escassez de chips provoca crise sem precedentes" class="card-image">
+                    <h3 class="card-title">A Crise de Escassez na Indústria de Chips</h3>
+                    <p class="card-description">Material impresso disponível. Áudio explicativo da temática em breve!</p>
+                    <button class="access-button" onclick="openModal('Escassez de Chip')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
+                    <img src="https://blog.orientu.com.br/wp-content/uploads/2020/11/o-que-%C3%A9-inteligencia-artificial.jpeg" alt="análise de dados avançada com inteligência artificial" class="card-image">
+                    <h3 class="card-title">Computação Preditiva</h3>
+                    <p class="card-description">Material impresso disponível. Áudio explicativo da temática em breve!</p>
+                    <button class="access-button" onclick="openModal('Computacao Preditiva')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
+                    <img src="https://umlivropordia.com.br/wp-content/uploads/2023/02/Um-livro-por-dia-1024x674.webp" alt="investigação digital de teorias conspiratórias na internet" class="card-image">
+                    <h3 class="card-title">Teorias Conspiratórias da Internet</h3>
+                    <p class="card-description">Material impresso disponível. Áudio explicativo da temática em breve!</p>
+                    <button class="access-button" onclick="openModal('Teorias Conspiratorias da Internet')">Acessar</button>
+                </div>
+                  
+                  <div class="card">
                     <img src="https://cdn.brandfolder.io/3RTTK3BV/at/j6nrt3s369gm7snb767j8p25/iStock-1206796363_web-social.auto" alt="junção do ser humano com sistemas de inteligência artigicial e robótica avançada." class="card-image">
                     <h3 class="card-title">Simbiose Homem-Máquina</h3>
                     <p class="card-description">A simbiose homem-máquina refere-se à integração harmoniosa entre capacidades humanas e tecnologias avançadas, criando um sistema híbrido que potencializa as habilidades de ambos. Esta relação colaborativa abre novas portas para inovação, eficiência e resolução de problemas complexos.</p>
@@ -501,7 +537,94 @@
                     currentThematic = thematic;
 
     
-                     // CLOUD, FOG E EDGE COMPUTING
+                    
+                    
+                    // PONTOS DE RUPTURA TECNOLÓGICA NA 5ª REVOLUÇÃO INDUSTRIAL
+                    if (thematic === 'Rupturas') {
+                    thematicTitle.textContent = 'Pontos de Ruptura Tecnológica na 5ª Revolução Industrial'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1ZMm2tBg7pd9y2S39J3XUaRfkbQ81oLJd/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                                           
+                                       
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática 
+                    
+                    
+                    // SISTEMA DE CLASSIFICAÇÃO COMPUTACIONAL
+                    if (thematic === 'Sistema Computacional') {
+                    thematicTitle.textContent = 'Sistema de Classificação Computacional'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1dalmsrb9wrKgk40Mq__cN8hfjeskdyUg/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                                           
+                                       
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática 
+                    
+                    
+                    // A CRISE DE ESCASSEZ NA INDÚSTRIA DE CHIPS
+                    if (thematic === 'Escassez de Chip') {
+                    thematicTitle.textContent = 'A Crise de Escassez na Indústria de Chips'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/19QLf2eIOPWa4CyBudUMtJZRQz2dORHO1/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                                           
+                                       
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática 
+
+                    
+                    // COMPUTAÇÃO PREDITIVA
+                    if (thematic === 'Computacao Preditiva') {
+                    thematicTitle.textContent = 'Computação Preditiva'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1ben6DdeaT2NwWdcjdxF1ymmYuk8vpE_o/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                                           
+                                       
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática 
+                    
+
+                    // TEORIAS CONSPIRATÓRIAS DA INTERNET
+                    if (thematic === 'Teorias Conspiratorias da Internet') {
+                    thematicTitle.textContent = 'Teorias Conspiratórias da Internet'; // Define o título da temática                                                  
+                    studySheetLink.href = 'https://drive.google.com/file/d/1UolIfCRJ-fL81lq1YegxKxMYO0NQBbjh/view?usp=sharing'; // Define o link da ficha de estudo
+                    chapters = [
+                                           
+                                       
+                        ];
+                    } else if (thematic === 'matematica') {
+                        chapters = [
+                            { title: 'Álgebra', audioLink: 'LINK3' },
+                            { title: 'Geometria', audioLink: 'LINK4' },                            
+                        ];
+                    }
+                    // fim da temática     
+                    
+                    
+                    // SIMBIOSE HOMEM-MÁQUINA
                      if (thematic === 'Simbiose Homem Maquina') {
                     thematicTitle.textContent = 'Simbiose Homem-Máquina'; // Define o título da temática                                                  
                     studySheetLink.href = 'https://drive.google.com/file/d/1fPDlOZjwyYhUz2kCCRicqhDp7KYKWv7T/view?usp=sharing'; // Define o link da ficha de estudo
