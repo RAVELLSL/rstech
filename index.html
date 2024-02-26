@@ -1,40 +1,199 @@
 
+
 <!DOCTYPE html>
+
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manutenção</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Prof. Ravell</title>
+<link href="https://fonts.googleapis.com/css2?family=Didot&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Didot', serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .foto-3x4 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .foto-3x4 img {
+            width: 6rem;
+            height: 8rem;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .info h1, .info p {
+            margin: 0;
+            color: #333;
+        }
+
+        
+        .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espaçamento entre as colunas */
+}
+
+.service {
+    flex-basis: calc(25% - 20px); /* Largura de cada serviço ajustando o espaçamento */
+    text-align: center;
+}
+
+
+        .cards-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+}
+
+.card:hover {
+    box-shadow: 0 0 0 2px rgba(211, 211, 211, 0.5), /* Degradê cinza claro externo */
+                0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreado mais intenso */
+    transform: scale(1.05); /* Efeito de leve aumento ao passar o mouse */
+}
+
+
+
+        .contato {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            margin-top: 20px;
+        }
+
+        .contato i {
+            font-size: 30px;
+            margin: 0 15px;
             color: #333;
         }
-        .mensagem-manutencao {
-            text-align: center;
-            max-width: 600px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .mensagem-manutencao h1 {
-            margin-top: 0;
-        }
+.contato a i:hover {
+    transform: scale(1.2); /* Aumenta o tamanho do ícone em 20% */
+    transition: transform 0.3s ease; /* Efeito de transição suave */
+}
+
+    
+    .profile-section-flex {
+        display:flex;
+    align-items: center; /* This will vertically center the items in the flex container */
+    text-align: center;
+    gap: 20px; /* Keeps the current gap between items */
+    }
+    .profile-section-flex img {
+        border-radius: 5px;  #Slightly rounded corners for the photo
+    }
+
+    .footer {
+    text-align: center; /* Centralizes the content */
+    font-weight: bold; /* Makes the text bold */
+    width: 100%; /* Ensures the footer spans the entire width */
+    position: relative; /* Adjust if needed to better fit your layout */
+    margin-top: auto; /* Adds some space between the contacts and the footer */
+}
     </style>
 </head>
-<body>
-    <div class="mensagem-manutencao">
-        <h1>Estamos em Manutenção</h1>
-        <p>Desculpe pelo inconveniente. Nosso site está passando por uma manutenção e atualização programada.</p>
-        <p>Por favor, volte em breve! Agradecemos pela sua paciência.</p>
+<body style="padding: 20px;"><div class="profile-section-flex"><img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY" style="width: auto; height: 240px;border-radius: 15px;"/><div><h1 style="text-align: center;">Ravell</h1><strong>Personal Assistant <br>Professor Particular de Tecnologias Digitais</strong><p></p></div></div>
+<div class="header">
+<div class="foto-3x4">
+</div>
+<div class="info">
+<h1 style="text-align: center;"></h1>
+</div>
+</div>
+<div class="cards-container" style="font-weight: bold;">
+    <div class="cards" style="font-weight: bold;">
+    <div class="card" style="font-weight: bold;">
+    <p>Área do Aluno</p>
     </div>
-</body>
+    <div class="card" style="font-weight: bold;">
+    <p>Material Complementar</p>
+    </div>
+    </div>
+    <div class="cards" style="font-weight: bold;">
+    <div class="card" style="font-weight: bold;">
+    <p>Artigos</p>
+    </div>
+    <div class="card" style="font-weight: bold;">
+    <p>Biblioteca Digital</p>
+    </div>
+    </div>
+    </div>
+<div class="services-container">
+    <div style="text-align: center;">
+    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png" style="width: 100px; height: 100px;"/>
+    <h3>Inclusão Digital</h3>
+    <p>Aprenda os conceitos básicos da informática!</p>
+    </div>
+    <div style="text-align: center;">
+    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png" style="width: 100px; height: 100px;"/>
+    <h3>Expansão Digital</h3>
+    <p>Amplie seus conhecimentos em tecnologia com <br>treinamentos e palestras.</p>
+    </div>
+    <div style="text-align: center;">
+    <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png" style="width: 100px; height: 100px;"/>
+    <h3>Suporte Técnico</h3>
+    <p>Realize a manutenção preventiva dos <br> seus equipamentos tecnológicos.</p>
+    </div>
+    <div style="text-align: center;">
+    <img alt="Nome do Serviço" src="https://www.intermidias.com.br/wp-content/uploads/2023/02/icon-tendencias-marketing-2023-responsivo.png" style="width: 100px; height: 100px;"/>
+    <h3>Assessoria</h3>
+    <p>Assessoria para todos os assuntos digitais!</p>
+    </div></div>
+<div class="contato">
+<a href="https://wa.me/5581984132629" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
+</div>
+<div class="footer"><p>2024</p>
+</div>
+</div></body>
 </html>
