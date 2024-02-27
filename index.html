@@ -18,6 +18,16 @@
             justify-content: start;
         }
 
+        /* Estilos para telas menores */
+        @media screen and (max-width: 1024px) {
+            .services-container {
+                flex-wrap: wrap;
+            }
+            .service {
+                flex-basis: 100%;
+            }
+        }
+
         .profile-section-flex {
             display: flex;
             align-items: center;
@@ -49,7 +59,6 @@
 
         .services-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
             gap: 30px; /* Espaçamento entre as colunas */
             margin-top: 30px; /* Adicionando espaço superior */
@@ -58,6 +67,17 @@
         .service {
             flex-basis: calc(25% - 20px); /* Largura de cada serviço ajustando o espaçamento */
             text-align: center;
+            margin-bottom: 20px; /* Espaçamento entre os serviços */
+        }
+
+        .service img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .service h3, .service p {
+            margin: 0;
+            color: #333;
         }
 
         .cards-container {
@@ -69,17 +89,8 @@
             margin-top: 5px;
         }
 
-        .cards {
-            display: flex;
-            justify-content: space-evenly;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
-
         .card {
             flex: 1;
-            background-color: #fff;
             padding: 15px;
             text-align: center;
             border-radius: 10px;
@@ -93,6 +104,9 @@
             cursor: pointer; /* Alteração do cursor para indicar que é clicável */
             text-decoration: none; /* Removendo sublinhado */
             color: #333; /* Definindo a cor do texto */
+            background-color: transparent; /* Tornando o fundo transparente */
+            border: none; /* Removendo a borda */
+            transition: box-shadow 0.3s ease; /* Adicionando transição suave para a sombra */
         }
 
         .card:hover {
@@ -159,23 +173,23 @@
         </a>
     </div>
     <div class="services-container">
-        <div style="text-align: center;">
-            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png" style="width: 100px; height: 100px;"/>
+        <div class="service">
+            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
             <h3>Inclusão Digital</h3>
             <p>Aprenda os conceitos básicos da informática!</p>
         </div>
-        <div style="text-align: center;">
-            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png" style="width: 100px; height: 100px;"/>
+        <div class="service">
+            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
             <h3>Expansão Digital</h3>
             <p>Amplie seus conhecimentos em tecnologia com <br>treinamentos e palestras.</p>
         </div>
-        <div style="text-align: center;">
-            <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png" style="width: 100px; height: 100px;"/>
+        <div class="service">
+            <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
             <h3>Suporte Técnico</h3>
             <p>Realize a manutenção preventiva dos <br> seus equipamentos tecnológicos.</p>
         </div>
-        <div style="text-align: center;">
-            <img alt="Nome do Serviço" src="https://www.intermidias.com.br/wp-content/uploads/2023/02/icon-tendencias-marketing-2023-responsivo.png" style="width: 100px; height: 100px;"/>
+        <div class="service">
+            <img alt="Nome do Serviço" src="https://www.intermidias.com.br/wp-content/uploads/2023/02/icon-tendencias-marketing-2023-responsivo.png"/>
             <h3>Assessoria</h3>
             <p>Assessoria para todos os assuntos digitais!</p>
         </div>
