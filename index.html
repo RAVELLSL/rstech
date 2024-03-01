@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -19,18 +18,9 @@
             justify-content: start;
         }
 
-        /* Estilos para telas menores */
-        @media screen and (max-width: 1024px) {
-            .services-container {
-                flex-wrap: wrap;
-            }
-            .service {
-                flex-basis: 100%;
-            }
-        }
-
         .profile-section-flex {
             display: flex;
+            flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 20px; /* Espaçamento entre os elementos */
@@ -60,8 +50,9 @@
 
         .services-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px; /* Espaçamento entre as colunas */
+            gap: 30px; /* Espaçamento entre os serviços */
             margin-top: 30px; /* Adicionando espaço superior */
         }
 
@@ -140,6 +131,22 @@
             width: 100%; /* Ensures the footer spans the entire width */
             position: relative; /* Adjust if needed to better fit your layout */
             margin-top: auto; /* Adds some space between the contacts and the footer */
+        }
+
+        /* Estilos para telas menores */
+        @media screen and (max-width: 768px) {
+            .service {
+                flex-basis: 100%;
+            }
+        }
+
+        /* Estilos para telas maiores */
+        @media screen and (min-width: 769px) {
+            .services-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
         }
     </style>
 </head>
