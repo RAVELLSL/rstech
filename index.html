@@ -141,7 +141,7 @@
             margin-bottom: 0;
         }
 
-        /* Estilos para telas menores */
+       /* Estilos para telas menores */
 @media screen and (max-width: 768px) {
     .service {
         flex-basis: 100%;
@@ -157,7 +157,13 @@
         margin-bottom: 20px;
         flex-basis: calc(50% - 20px); /* Ajuste para que os cards sejam quadrados */
     }
+
+    .card p {
+        padding: 10px; /* Adicionando um preenchimento interno ao parágrafo dentro do card */
+    }
 }
+
+
         /* Estilos para telas maiores */
         @media screen and (min-width: 769px) {
             .services-container {
