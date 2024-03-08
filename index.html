@@ -2,14 +2,14 @@
 <html lang="pt">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no" name="viewport"/> <!-- Ajuste de escala para diminuir zoom em telas maiores -->
     <title>Prof. Ravell</title>
     <!-- Substitua o link da fonte atual pelo link da fonte "Montserrat" -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
-            font-family: 'Montserrat', sans-serif; /* Substitua a fonte atual pela "Montserrat" */
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
@@ -17,6 +17,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: start;
+        }
+
+        .container {
+            max-width: 1200px; /* Define a largura máxima do conteúdo */
+            width: 100%;
+            padding: 0 20px; /* Adiciona um espaçamento interno nas laterais */
         }
 
         .profile-section-flex {
@@ -132,6 +138,7 @@
             width: 100%; /* Ensures the footer spans the entire width */
             position: relative; /* Adjust if needed to better fit your layout */
             margin-top: auto; /* Adds some space between the contacts and the footer */
+            margin-bottom: 0; /* Remove a margem inferior */
         }
 
         /* Estilos para telas menores */
@@ -151,67 +158,69 @@
         }
     </style>
 </head>
-<body style="padding: 30px;">
-    <div class="profile-section-flex">
-        <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY" style="width: auto; height: 240px;border-radius: 15px;"/>
-        <div>
-            <h1 style="text-align: center;">Ravell</h1>
-            <strong>Personal Assistant <br>Professor Particular de Tecnologias Digitais</strong>
-            <p></p>
+<body>
+    <div class="container"> <!-- Adiciona uma div de contêiner -->
+        <div class="profile-section-flex">
+            <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY" style="width: auto; height: 240px;border-radius: 15px;"/>
+            <div>
+                <h1 style="text-align: center;">Ravell</h1>
+                <strong>Personal Assistant <br>Professor Particular de Tecnologias Digitais</strong>
+                <p></p>
+            </div>
         </div>
-    </div>
-    <div class="header">
-        <div class="foto-3x4">
+        <div class="header">
+            <div class="foto-3x4">
+            </div>
+            <div class="info">
+                <h1 style="text-align: center;"></h1>
+            </div>
         </div>
-        <div class="info">
-            <h1 style="text-align: center;"></h1>
+        <div class="cards-container" style="font-weight: bold;">
+            <a href="https://ravellsl.github.io/rstech-aluno/" target="_blank" class="card">
+                <p>Área do Aluno</p>
+            </a>
+            <a href="https://ravellsl.github.io/rstech-material/" target="_blank" class="card">
+                <p>Material Complementar</p>
+            </a>
+            <a href="https://ravellsl.github.io/rstech-artigos/" target="_blank" class="card">
+                <p>Artigos</p>
+            </a>
+            <a href="https://ravellsl.github.io/rstech-biblioteca/" target="_blank" class="card">
+                <p>Biblioteca Digital</p>
+            </a>
         </div>
-    </div>
-    <div class="cards-container" style="font-weight: bold;">
-        <a href="https://ravellsl.github.io/rstech-aluno/" target="_blank" class="card">
-            <p>Área do Aluno</p>
-        </a>
-        <a href="https://ravellsl.github.io/rstech-material/" target="_blank" class="card">
-            <p>Material Complementar</p>
-        </a>
-        <a href="https://ravellsl.github.io/rstech-artigos/" target="_blank" class="card">
-            <p>Artigos</p>
-        </a>
-        <a href="https://ravellsl.github.io/rstech-biblioteca/" target="_blank" class="card">
-            <p>Biblioteca Digital</p>
-        </a>
-    </div>
-    <div class="services-container">
-        <div class="service">
-            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
-            <h3>Inclusão Digital</h3>
-            <p>Aprenda os conceitos básicos da informática!</p>
+        <div class="services-container">
+            <div class="service">
+                <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
+                <h3>Inclusão Digital</h3>
+                <p>Aprenda os conceitos básicos da informática!</p>
+            </div>
+            <div class="service">
+                <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
+                <h3>Expansão Digital</h3>
+                <p style="text-align: center;">Amplie seus conhecimentos em tecnologia com treinamentos e palestras.</p>
+            </div>
+            
+            <div class="service">
+                <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
+                <h3>Suporte Técnico</h3>
+                <p style="text-align: center;">Realize a manutenção preventiva dos seus equipamentos tecnológicos.</p>            
+            </div>
+            <div class="service">
+                <img alt="Nome do Serviço" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
+                <h3>Assessoria</h3>
+                <p>Assessoria para todos os assuntos digitais!</p>
+            </div>
         </div>
-        <div class="service">
-            <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
-            <h3>Expansão Digital</h3>
-            <p style="text-align: center;">Amplie seus conhecimentos em tecnologia com treinamentos e palestras.</p>
+        <div class="contato">
+            <a href="https://wa.me/5581984132629" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        
-        <div class="service">
-            <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
-            <h3>Suporte Técnico</h3>
-            <p style="text-align: center;">Realize a manutenção preventiva dos seus equipamentos tecnológicos.</p>            
+        <div class="footer">
+            <p>2024</p>
         </div>
-        <div class="service">
-            <img alt="Nome do Serviço" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
-            <h3>Assessoria</h3>
-            <p>Assessoria para todos os assuntos digitais!</p>
-        </div>
-    </div>
-    <div class="contato">
-        <a href="https://wa.me/5581984132629" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-    <div class="footer">
-        <p>2024</p>
     </div>
 </body>
 </html>
