@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -151,18 +152,18 @@
             margin-bottom: 0;
         }
 
-        /* Estilos para telas menores */
-        @media screen and (max-width: 768px) {
-            .profile-container {
-                flex-direction: column;
-                align-items: center;
-            }
+       /* Estilos para telas menores */
+@media screen and (max-width: 768px) {
+    .services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Usando grid para organizar os cards */
+        gap: 20px;
+    }
 
-            .profile-info {
-                margin-top: 20px;
-                margin-left: 0; /* Remove o espaçamento à esquerda */
-            }
-        }
+    .service {
+        margin-bottom: 10px; /* Ajustando a margem inferior dos cards */
+    }
+}
 
         /* Estilos para telas maiores */
         @media screen and (min-width: 769px) {
