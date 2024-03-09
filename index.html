@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/> <!-- Ajuste de escala para telas menores -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <title>Prof. Ravell</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
@@ -22,15 +22,26 @@
             max-width: 1200px;
             width: 100%;
             padding: 0 20px;
+            position: relative;
         }
 
         .profile-section-flex {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 20px;
+            justify-content: center;
             margin-top: 20px;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-left: 20px; /* Espaçamento entre a foto e os dados de apresentação */
         }
 
         .profile-section-flex img {
@@ -63,7 +74,7 @@
         }
 
         .service {
-            flex-basis: calc(25% - 20px); /* Largura original dos serviços */
+            flex-basis: calc(25% - 20px);
             text-align: center;
             margin-bottom: 20px;
         }
@@ -140,48 +151,47 @@
             margin-bottom: 0;
         }
 
-       /* Estilos para telas menores */
-@media screen and (max-width: 768px) {
-    .services-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        /* Estilos para telas menores */
+        @media screen and (max-width: 768px) {
+            .services-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-    .service {
-        flex-basis: calc(50% - 20px);
-        margin-bottom: 20px;
-    }
+            .service {
+                flex-basis: calc(50% - 20px);
+                margin-bottom: 20px;
+            }
 
-    .cards-container {
-        flex-direction: row;
-    }
+            .cards-container {
+                flex-direction: row;
+            }
 
-    .card {
-        flex-basis: calc(50% - 20px);
-    }
-}
+            .card {
+                flex-basis: calc(50% - 20px);
+            }
+        }
 
-         /* Estilos para telas maiores */
-         @media screen and (min-width: 769px) {
+        /* Estilos para telas maiores */
+        @media screen and (min-width: 769px) {
             .services-container {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
             }
         }
-
-
     </style>
 </head>
 <body>
     <div class="container">
         <div class="profile-section-flex">
-            <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY" style="width: auto; height: 240px;border-radius: 15px;"/>
-            <div>
-                <h1 style="text-align: center;">Ravell</h1>
-                <strong>Personal Assistant <br>Professor Particular de Tecnologias Digitais</strong>
-                <p></p>
+            <div class="profile-container">
+                <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY"/>
+                <div class="profile-info">
+                    <h1>Ravell</h1>
+                    <strong>Personal Assistant <br>Professor Particular de Tecnologias Digitais</strong>
+                </div>
             </div>
         </div>
         <div class="header">
