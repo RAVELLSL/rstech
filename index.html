@@ -27,8 +27,8 @@
 
         .profile-section-flex {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             margin-top: 20px;
         }
 
@@ -41,7 +41,7 @@
 
         .profile-info {
             text-align: center;
-            margin-left: 20px;
+            margin-top: 20px; /* Espaçamento adicionado abaixo da foto */
         }
 
         .profile-section-flex img {
@@ -182,8 +182,8 @@
             }
         }
 
-         /* Estilos para telas maiores */
-         @media screen and (min-width: 769px) {
+        /* Estilos para telas maiores */
+        @media screen and (min-width: 769px) {
             .services-container {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
