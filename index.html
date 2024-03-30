@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -124,6 +126,19 @@
             transform: scale(1.05);
         }
 
+/* Estilo para remover a aparência padrão de link e ocultar o sublinhado */
+.service-link {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Mantém a cor padrão do texto */
+}
+
+/* Estilo para garantir que os links dos serviços sejam invisíveis, mas ainda clicáveis */
+.service-link:hover {
+    text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+}
+
+
+
         .contato {
             display: flex;
             justify-content: center;
@@ -234,28 +249,37 @@
             </a>
         </div>
         <div class="services-container">
-            <div class="service">
-                <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
-                <h3>Inclusão Digital</h3>
-                <p>Aprenda os conceitos e ferramentas básicas da informática!</p>
-            </div>
-            <div class="service">
-                <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
-                <h3>Expansão Digital</h3>
-                <p style="text-align: center;">Amplie seus conhecimentos em tecnologia com treinamentos e palestras.</p>
-            </div>
-            
-            <div class="service">
-                <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
-                <h3>Suporte Técnico</h3>
-                <p style="text-align: center;">Realize a manutenção preventiva dos seus equipamentos tecnológicos.</p>            
-            </div>
-            <div class="service">
-                <img alt="Nome do Serviço" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
-                <h3>Assessoria</h3>
-                <p>Assessoria para todos os assuntos digitais!</p>
-            </div>
+            <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" class="service-link">
+                <div class="service">
+                    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
+                    <h3>Inclusão Digital</h3>
+                    <p>Aprenda os conceitos e ferramentas básicas da informática!</p>
+                </div>
+            </a>
+            <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" class="service-link">
+                <div class="service">
+                    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
+                    <h3>Expansão Digital</h3>
+                    <p style="text-align: center;">Amplie seus conhecimentos em tecnologia com treinamentos e palestras.</p>
+                </div>
+            </a>
+            <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" class="service-link">
+                <div class="service">
+                    <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
+                    <h3>Suporte Técnico</h3>
+                    <p style="text-align: center;">Realize a manutenção preventiva ou corretiva dos seus equipamentos tecnológicos.</p>            
+                </div>
+            </a>
+            <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" class="service-link">
+                <div class="service">
+                    <img alt="Nome do Serviço" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
+                    <h3>Assessoria</h3>
+                    <p>Assessoria sob medida e personalizada para todos os assuntos digitais!</p>
+                </div>
+            </a>
         </div>
+        
+        
         <div class="contato">
             <a href="https://wa.me/5581984132629" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
