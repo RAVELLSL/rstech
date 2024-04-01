@@ -2,10 +2,10 @@
 <html lang="pt">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Prof. Ravell</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="screen"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" media="screen"/>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -27,27 +27,28 @@
 
         .profile-section-flex {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
+            justify-content: center; /* Alterado para center */
             margin-top: 20px;
         }
 
         .profile-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            /* Mantido como estava */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionado sombreado */
+            border-radius: 10px; /* Adicionado borda arredondada */
+            overflow: hidden; /* Evita que o sombreado seja cortado */
+        }
+
+        .profile-container img {
+            width: auto;
+            height: 240px;
+            border-radius: 15px;
         }
 
         .profile-info {
             text-align: left;
-            margin-top: 20px; /* Espaçamento adicionado abaixo da foto */ 
-        }
-
-        .profile-section-flex img {
-            width: auto;
-            height: 240px;
-            border-radius: 15px;
+            margin-left: 20px;
         }
 
         .header {
@@ -124,91 +125,78 @@
             transform: scale(1.05);
         }
 
-/* Estilo para remover a aparência padrão de link e ocultar o sublinhado */
-.service-link {
-    text-decoration: none; /* Remove o sublinhado */
-    color: inherit; /* Mantém a cor padrão do texto */
-}
+        /* Estilo para remover a aparência padrão de link e ocultar o sublinhado */
+        .service-link {
+            text-decoration: none; /* Remove o sublinhado */
+            color: inherit; /* Mantém a cor padrão do texto */
+        }
 
-/* Estilo para garantir que os links dos serviços sejam invisíveis, mas ainda clicáveis */
-.service-link:hover {
-    text-decoration: none; /* Remove o sublinhado ao passar o mouse */
-}
-
-
+        /* Estilo para garantir que os links dos serviços sejam invisíveis, mas ainda clicáveis */
+        .service-link:hover {
+            text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+        }
 
         .contato {
             display: flex;
-            justify-content: left;
-            align-items: left;
+            align-items: center; /* Alterado para center */
             margin-top: 20px;
         }
 
         .contato i {
             font-size: 30px;
-            margin: 0 15px;
+            margin-right: 15px; /* Alterado para right */
             color: #333;
-        }
-
-        .contato a i:hover {
-            transform: scale(1.2);
             transition: transform 0.3s ease;
         }
 
-        .info-text {
-    margin-right: 10px; /* Ajusta o espaçamento entre o texto e o ícone do WhatsApp */
-}
-
+        .contato i:hover {
+            transform: scale(1.2);
+        }
 
         .footer {
             text-align: center;
             font-weight: bold;
             width: 100%;
             position: relative;
-            margin-top: auto;
-            margin-bottom: 0;
+            margin-top: 20px;
         }
 
         /* Estilos para telas menores */
-        @media screen and (max-width: 768px) {
-            .profile-section-flex {
-                flex-direction: column;
-                align-items: center;
-            }
+@media screen and (max-width: 768px) {
+    .profile-section-flex {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .profile-container {
-                margin-top: 20px;
-            }
+    .profile-info {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 20px;
+    }
 
-            .profile-info {
-                margin-left: 0;
-            }
+    .contato {
+        justify-content: center; /* Centralizando os ícones */
+        margin-top: 20px;
+    }
 
-            .services-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+    .contato i {
+        margin-right: 10px; /* Reduzindo a margem entre os ícones */
+    }
 
-            .service {
-                flex-basis: calc(50% - 20px); /* Definindo dois serviços por linha */
-                margin-bottom: 20px;
-            }
+    .contato i:last-child {
+        margin-right: 0; /* Removendo a margem do último ícone */
+    }
+}
 
-            .cards-container .card {
-                flex-basis: calc(50% - 20px); /* Definindo dois cards por linha */
-            }
-        }
 
         /* Estilos para telas maiores */
         @media screen and (min-width: 769px) {
             .profile-section-flex {
-                flex-direction: row;
-                justify-content: center;
+                /* Mantido como estava */
             }
 
             .profile-info {
-                margin-left: 20px;
+                /* Mantido como estava */
             }
 
             .services-container {
@@ -226,19 +214,17 @@
                 <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_800_800/0/1691719867138?e=1714003200&amp;v=beta&amp;t=GivXxUI69uAXj9gumQ4h4VD34OeSuZD3Ti2OT28LaCY"/>
             </div>
             <div class="profile-info">
-    <div class="info-text">
-        <h1>Ravell</h1>
-        <strong>Personal Assistant<br>e Professor Particular de Tecnologias Digitais</strong>
-    </div>
-    <div class="contato">
-        <a href="https://wa.me/5581984132629" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-</div>
-
-
+                <div class="info-text">
+                    <h1>Ravell</h1>
+                    <strong>Personal Assistant<br>e Professor Particular de Tecnologias Digitais</strong>
+                </div>
+                <div class="contato">
+                    <a href="https://wa.me/5581984132629"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287/" style="text-decoration: none;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
         <div class="header">
             <div class="foto-3x4">
@@ -273,14 +259,14 @@
                 <div class="service">
                     <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
                     <h3>Expansão Digital</h3>
-                    <p style="text-align: center;">Amplie seus conhecimentos em tecnologia!</p>
+                    <p>Amplie seus conhecimentos em tecnologia!</p>
                 </div>
             </a>
             <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" class="service-link">
                 <div class="service">
                     <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
                     <h3>Suporte Técnico</h3>
-                    <p style="text-align: center;">Realize manutenções preventivas ou corretivas dos seus equipamentos tecnológicos!</p>            
+                    <p>Realize manutenções preventivas ou corretivas dos seus equipamentos tecnológicos!</p>            
                 </div>
             </a>
             <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" class="service-link">
