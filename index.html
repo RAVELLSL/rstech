@@ -162,7 +162,7 @@
         }
 
         /* Estilos para telas menores */
-@media screen and (max-width: 768px) {
+        @media screen and (max-width: 768px) {
     .profile-section-flex {
         flex-direction: column;
         align-items: center;
@@ -176,15 +176,18 @@
 
     .contato {
         justify-content: center; /* Centralizando os ícones */
-        margin-top: 20px;
+        flex-wrap: wrap; /* Permitir que os ícones se ajustem conforme necessário */
+        gap: 10px; /* Adiciona espaço entre os ícones */
+    }
+
+    .contato a {
+        margin: 5px; /* Adiciona margem em torno de cada link para evitar que fiquem colados */
     }
 
     .contato i {
-        margin-right: 5px; /* Adicionando espaço entre os ícones */
-    }
-
-    .contato i:last-child {
-        margin-right: 0; /* Removendo a margem do último ícone */
+        font-size: 30px;
+        color: #333;
+        transition: transform 0.3s ease;
     }
 
     .cards-container {
