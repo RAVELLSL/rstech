@@ -180,7 +180,7 @@
     }
 
     .contato i {
-        margin-right: 10px; /* Reduzindo a margem entre os ícones */
+        margin-right: 10px; /* Adicionando espaço entre os ícones */
     }
 
     .contato i:last-child {
@@ -188,11 +188,14 @@
     }
 
     .cards-container {
-        flex-direction: column; /* Alterando para layout de coluna */
-        align-items: center; /* Centralizando os cards */
+        width: 100%; /* Fazendo os cards ocuparem a largura total da tela */
+        display: flex;
+        flex-direction: column; /* Alinhando os cards em coluna */
+        align-items: center; /* Centralizando os cards horizontalmente */
     }
 
     .cards-container .card {
+        width: calc(100% - 20px); /* Definindo a largura dos cards */
         margin-bottom: 10px; /* Adicionando espaço entre os cards */
     }
 }
