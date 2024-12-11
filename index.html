@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Prof. Ravell</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" media="screen"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" media="screen"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start; /* Ajuste recomendado */
         }
 
         .container {
@@ -29,15 +29,14 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center; /* Alterado para center */
+            justify-content: center;
             margin-top: 20px;
         }
 
         .profile-container {
-            /* Mantido como estava */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionado sombreado */
-            border-radius: 10px; /* Adicionado borda arredondada */
-            overflow: hidden; /* Evita que o sombreado seja cortado */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .profile-container img {
@@ -125,26 +124,24 @@
             transform: scale(1.05);
         }
 
-        /* Estilo para remover a aparência padrão de link e ocultar o sublinhado */
         .service-link {
-            text-decoration: none; /* Remove o sublinhado */
-            color: inherit; /* Mantém a cor padrão do texto */
+            text-decoration: none;
+            color: inherit;
         }
 
-        /* Estilo para garantir que os links dos serviços sejam invisíveis, mas ainda clicáveis */
         .service-link:hover {
-            text-decoration: none; /* Remove o sublinhado ao passar o mouse */
+            text-decoration: none;
         }
 
         .contato {
             display: flex;
-            align-items: center; /* Alterado para center */
+            align-items: center;
             margin-top: 20px;
         }
 
         .contato i {
             font-size: 30px;
-            margin-right: 15px; /* Alterado para right */
+            margin-right: 15px;
             color: #333;
             transition: transform 0.3s ease;
         }
@@ -161,59 +158,48 @@
             margin-top: 20px;
         }
 
-        /* Estilos para telas menores */
         @media screen and (max-width: 768px) {
-    .profile-section-flex {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .profile-info {
-        margin-left: 0;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .contato {
-        justify-content: center; /* Centralizando os ícones */
-        flex-wrap: wrap; /* Permitir que os ícones se ajustem conforme necessário */
-        gap: 10px; /* Adiciona espaço entre os ícones */
-    }
-
-    .contato a {
-        margin: 5px; /* Adiciona margem em torno de cada link para evitar que fiquem colados */
-    }
-
-    .contato i {
-        font-size: 30px;
-        color: #333;
-        transition: transform 0.3s ease;
-    }
-
-    .cards-container {
-        width: 100%; /* Fazendo os cards ocuparem a largura total da tela */
-        display: flex;
-        flex-direction: column; /* Alinhando os cards em coluna */
-        align-items: center; /* Centralizando os cards horizontalmente */
-    }
-
-    .cards-container .card {
-        width: calc(100% - 20px); /* Definindo a largura dos cards */
-        margin-bottom: 10px; /* Adicionando espaço entre os cards */
-    }
-}
-
-
-        /* Estilos para telas maiores */
-        @media screen and (min-width: 769px) {
             .profile-section-flex {
-                /* Mantido como estava */
+                flex-direction: column;
+                align-items: center;
             }
 
             .profile-info {
-                /* Mantido como estava */
+                margin-left: 0;
+                text-align: center;
+                margin-top: 20px;
             }
 
+            .contato {
+                justify-content: center; 
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .contato a {
+                margin: 5px; 
+            }
+
+            .contato i {
+                font-size: 30px;
+                color: #333;
+                transition: transform 0.3s ease;
+            }
+
+            .cards-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cards-container .card {
+                width: calc(100% - 20px);
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
             .services-container {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -224,9 +210,10 @@
 </head>
 <body>
     <div class="container">
+
         <div class="profile-section-flex">
             <div class="profile-container">
-                <img alt="Foto 3x4" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_200_200/0/1691719867138?e=2147483647&v=beta&t=dlfG6oxGKbT2vfCVjIAiCf6WSsWIF2VlEkBPrMlcObM"/>
+                <img alt="Foto de perfil de Ravell" src="https://media.licdn.com/dms/image/D5603AQFi-NKF0jyqBA/profile-displayphoto-shrink_200_200/0/1691719867138?e=2147483647&v=beta&t=dlfG6oxGKbT2vfCVjIAiCf6WSsWIF2VlEkBPrMlcObM"/>
             </div>
             <div class="profile-info">
                 <div class="info-text">
@@ -234,69 +221,69 @@
                     <strong>Personal Assistant<br>e Professor Particular de Tecnologias Digitais</strong>
                 </div>
 
-
                 <div class="contato">
-                    <a href="https://wa.me/5581984132629"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="text-decoration: none;"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/ravell_lopes/?next=%2F" style="text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5581984132629" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ravell_lopes/?next=%2F" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
 
-
         <div class="header">
-            <div class="foto-3x4">
-            </div>
+            <!-- Removido h1 vazio e div .foto-3x4 pois não possuem conteúdo -->
             <div class="info">
-                <h1 style="text-align: center;"></h1>
+                <!-- h1 vazio removido -->
             </div>
         </div>
-
 
         <div class="cards-container" style="font-weight: bold;">
 
-            <a href="https://ravellsl.github.io/login/" target="_blank" class="card">
+            <a href="https://ravellsl.github.io/login/" target="_blank" rel="noopener noreferrer" class="card">
                 <p>Área do Aluno</p>
             </a>
 
-            <a href="https://ravellsl.github.io/rstech-artigos/" target="_blank" class="card">
+            <a href="https://ravellsl.github.io/rstech-artigos/" target="_blank" rel="noopener noreferrer" class="card">
                 <p>Artigos</p>
             </a>
 
-            <a href="https://ravellsl.github.io/techtube/" target="_blank" class="card">
+            <a href="https://ravellsl.github.io/techtube/" target="_blank" rel="noopener noreferrer" class="card">
                 <p>TechTube</p>
             </a>
 
-            <a href="https://ravellsl.github.io/SynTHub-IA/" target="_blank" class="card">
+            <a href="https://ravellsl.github.io/SynTHub-IA/" target="_blank" rel="noopener noreferrer" class="card">
                 <p>Hub de Inteligência Artificial</p>
             </a>
         </div>
+
         <div class="services-container">
-            <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" class="service-link">
+            <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" rel="noopener noreferrer" class="service-link">
                 <div class="service">
-                    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
+                    <img alt="Ícone representando Inclusão Digital" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
                     <h3>Inclusão Digital</h3>
                     <p>Aprenda os conceitos e ferramentas básicas da informática!</p>
                 </div>
             </a>
-            <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" class="service-link">
+
+            <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" rel="noopener noreferrer" class="service-link">
                 <div class="service">
-                    <img alt="Nome do Serviço" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
+                    <img alt="Ícone representando Expansão Digital" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
                     <h3>Expansão Digital</h3>
                     <p>Amplie seus conhecimentos em tecnologia!</p>
                 </div>
             </a>
-            <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" class="service-link">
+
+            <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" rel="noopener noreferrer" class="service-link">
                 <div class="service">
-                    <img alt="Nome do Serviço" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
+                    <img alt="Ícone representando Suporte Técnico" src="https://tecnologia61.com.br/wp-content/uploads/2023/01/suporte-tecnico.png"/>
                     <h3>Suporte Técnico</h3>
                     <p>Realize manutenções preventivas ou corretivas dos seus equipamentos tecnológicos!</p>            
                 </div>
             </a>
-            <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" class="service-link">
+
+            <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" rel="noopener noreferrer" class="service-link">
                 <div class="service">
-                    <img alt="Nome do Serviço" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
+                    <img alt="Ícone representando Assessoria Tecnológica" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
                     <h3>Assessoria</h3>
                     <p>Assessoria sob medida para demandas digitais.</p>
                 </div>
