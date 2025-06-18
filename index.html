@@ -2,316 +2,302 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Prof. Ravell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Prof. Ravell - Especialista em Tecnologias Digitais</title>
+
+    <meta name="description" content="Aulas particulares, assessoria e suporte em tecnologia com o Prof. Ravell. Aprenda informática, do básico ao avançado, e resolva seus problemas digitais.">
     
-    <!-- Meta tags Open Graph -->
-    <meta property="og:title" content="Prof. Ravell">
+    <meta property="og:title" content="Prof. Ravell - Especialista em Tecnologias Digitais">
     <meta property="og:description" content="Personal Assistant e Professor Particular de Tecnologias Digitais">
     <meta property="og:image" content="https://i.ibb.co/k1D6Hgy/unnamed.jpg">
-    <!-- Substitua a URL abaixo pela URL real onde o site estará hospedado -->
     <meta property="og:url" content="https://ravellsl.github.io/rstech/">
-    <meta property="og:type" content="website">
-
-    <!-- Meta tags Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Prof. Ravell">
-    <meta name="twitter:description" content="Personal Assistant e Professor Particular de Tecnologias Digitais">
-    <meta name="twitter:image" content="https://i.ibb.co/k1D6Hgy/unnamed.jpg">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
     
-    <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     
     <style>
-        body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
+        /* Variáveis de Tema */
+        :root {
+            --primary-color: #007BFF;
+            --primary-hover: #0056b3;
+            --text-color: #333;
+            --text-light: #555;
+            --bg-profile: #f0f2f5;
+            --bg-services: #ffffff;
+            --border-color: #e0e0e0;
+        }
 
-.container {
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 20px;
-    position: relative;
-}
+        /* Estilos Globais */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden; /* Previne a rolagem na visualização de desktop */
+        }
 
-.profile-section-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
+        .main-container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
 
-/* Ajuste para "cortar" a parte superior da imagem */
-.profile-container {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    width: auto;
-    height: 240px;
-    position: relative;
-}
+        /* --- Painel Esquerdo (Perfil) --- */
+        .profile-panel {
+            flex: 0 0 45%;
+            background-color: var(--bg-profile);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2vw;
+            transition: all 0.3s ease;
+        }
 
-.profile-container img {
-    width: auto;
-    height: 300px; /* Valor maior que o contêiner para ter área a ser "cortada" */
-    margin-top: -40px; /* Ajustado para reduzir o corte da cabeça e do cabelo */
-    border-radius: 15px;
-}
+        .profile-image {
+            width: clamp(100px, 12vw, 160px);
+            height: clamp(100px, 12vw, 160px);
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5vh;
+            border: 3px solid var(--bg-services);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.profile-info {
-    text-align: left;
-    margin-left: 20px;
-}
+        .profile-panel h1 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin: 0;
+        }
 
-.header {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-}
+        .profile-panel .subtitle {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--text-light);
+            max-width: 90%;
+            margin: 1vh 0 3vh;
+        }
 
-.info {
-    text-align: center;
-}
+        .aluno-btn {
+            background: linear-gradient(45deg, #009eff, #0056b3);
+            background-size: 200% auto;
+            color: white;
+            border: none;
+            padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2.5vw, 30px);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.85rem, 1.4vw, 1rem);
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+            transition: all 0.4s ease;
+            white-space: nowrap;
+        }
 
-.info h1,
-.info p {
-    margin: 0;
-    color: #333;
-}
+        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
+        .aluno-btn:hover,
+        .aluno-btn:focus-visible {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+            outline: none; /* Remove o contorno padrão em favor do nosso efeito customizado */
+        }
 
-.services-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-}
+        .aluno-btn i {
+            margin-right: 8px;
+        }
 
-.service {
-    flex-basis: calc(25% - 20px);
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .social-links {
+            margin-top: 4vh;
+        }
 
-.service img {
-    width: 100px;
-    height: 100px;
-}
+        .social-links a {
+            color: var(--text-light);
+            font-size: clamp(1.4rem, 2vw, 1.8rem);
+            margin: 0 clamp(8px, 1vw, 12px);
+            transition: all 0.3s ease;
+        }
 
-.service h3,
-.service p {
-    margin: 0;
-    color: #333;
-}
+        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
+        .social-links a:hover,
+        .social-links a:focus-visible {
+            color: var(--primary-color);
+            transform: scale(1.1);
+            outline: none;
+        }
 
-.cards-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-}
+        /* --- Painel Direito (Serviços) --- */
+        .services-panel {
+            flex: 1;
+            background-color: var(--bg-services);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2vw;
+            overflow-y: auto;
+        }
 
-.card {
-    flex: 1;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #333;
-    background-color: transparent;
-    border: none;
-    transition: box-shadow 0.3s ease;
-}
+        .services-panel h2 {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin-bottom: 4vh;
+            text-align: center;
+        }
 
-.card:hover {
-    box-shadow: 0 0 0 2px rgba(211, 211, 211, 0.5),
-                0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(15px, 2vw, 25px);
+            width: 100%;
+            max-width: 800px;
+        }
 
-.service-link {
-    text-decoration: none;
-    color: inherit;
-}
+        .service-card {
+            background: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: clamp(10px, 1.8vw, 20px);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer; /* [UX] Adicionado cursor de ponteiro */
+        }
 
-.service-link:hover {
-    text-decoration: none;
-}
+        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
+        .service-card:hover,
+        .service-card:focus-visible {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+            outline: 2px solid var(--primary-color); /* Adiciona um contorno visível no foco */
+            outline-offset: 2px;
+        }
 
-.contato {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
+        .service-card img {
+            width: clamp(40px, 6vw, 70px);
+            height: clamp(40px, 6vw, 70px);
+            margin-bottom: 1.5vh;
+        }
 
-.contato i {
-    font-size: 30px;
-    margin-right: 15px;
-    color: #333;
-    transition: transform 0.3s ease;
-}
+        .service-card h3 {
+            margin: 0 0 0.5vh 0;
+            font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+        }
 
-.contato i:hover {
-    transform: scale(1.2);
-}
+        .service-card p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            line-height: 1.4;
+        }
 
-.footer {
-    text-align: center;
-    font-weight: bold;
-    width: 100%;
-    position: relative;
-    margin-top: 20px;
-}
+        /* --- Rodapé --- */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            font-size: 0.8rem; /* Levemente reduzido para acomodar mais texto */
+            color: #aaa;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
 
-@media screen and (max-width: 768px) {
-    .profile-section-flex {
-        flex-direction: column;
-        align-items: center;
-    }
+        .footer p {
+            margin: 0;
+        }
 
-    .profile-info {
-        margin-left: 0;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .contato {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .contato a {
-        margin: 5px;
-    }
-
-    .contato i {
-        font-size: 30px;
-        color: #333;
-        transition: transform 0.3s ease;
-    }
-
-    .cards-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cards-container .card {
-        width: calc(100% - 20px);
-        margin-bottom: 10px;
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .services-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-    }
-}
-
+        /* --- Responsividade para telas de celular --- */
+        @media (max-width: 800px) {
+            html, body {
+                overflow: auto; /* Permite a rolagem em telas pequenas */
+            }
+            .main-container {
+                flex-direction: column;
+                height: auto; /* Altura automática para permitir rolagem */
+            }
+            .profile-panel {
+                flex: 1 0 auto;
+                padding: 40px 20px;
+            }
+            .services-panel {
+                padding: 40px 20px 80px; /* Aumentado o padding inferior para o rodapé não cobrir o conteúdo */
+            }
+            .services-container {
+                grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+            }
+            .footer {
+                position: relative; /* Rodapé volta ao fluxo normal no mobile */
+                background: var(--bg-profile);
+                padding: 15px;
+                color: var(--text-light);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
 
-        <div class="profile-section-flex">
-            <div class="profile-container">
-                <img alt="Foto de perfil de Ravell" src="https://i.ibb.co/9t4389v/unnamed.jpg"/>
+    <div class="main-container">
+        <section class="profile-panel">
+            <img class="profile-image" alt="Foto de perfil de Ravell" src="https://i.ibb.co/9t4389v/unnamed.jpg"/>
+            <h1>Ravell</h1>
+            <p class="subtitle">Personal Assistant e Professor Particular de Tecnologias Digitais.</p>
+            
+            <a href="https://ravellsl.github.io/login/" target="_blank" rel="noopener noreferrer" class="aluno-btn">
+                <i class="fas fa-user-graduate"></i>
+                Área do Aluno
+            </a>
+
+            <div class="social-links">
+                <a href="https://wa.me/5581984132629" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/ravell_lopes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:ravell.lopes@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
-            <div class="profile-info">
-                <div class="info-text">
-                    <h1>Ravell</h1>
-                    <strong>Personal Assistant<br>e Professor Particular de Tecnologias Digitais</strong>
-                </div>
-                <div class="contato">
-                    <a href="https://wa.me/5581984132629" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.linkedin.com/in/ravell-souza-lopes-573968287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/ravell_lopes/?next=%2F" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:ravell.lopes@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <div class="header">
-            <div class="info"></div>
-        </div>
-
-        <div class="cards-container" style="font-weight: bold;">
-            <a href="https://ravellsl.github.io/login/" target="_blank" rel="noopener noreferrer" class="card">
-                <p>Área do Aluno</p>
-            </a>
-            <a href="https://ravellsl.github.io/rstech-artigos/" target="_blank" rel="noopener noreferrer" class="card">
-                <p>Artigos</p>
-            </a>
-            <a href="https://ravellsl.github.io/techtube/" target="_blank" rel="noopener noreferrer" class="card">
-                <p>TechTube</p>
-            </a>
-            <a href="https://ravellsl.github.io/SynTHub-IA/" target="_blank" rel="noopener noreferrer" class="card">
-                <p>Hub de Inteligência Artificial</p>
-            </a>
-        </div>
-
-        <div class="services-container">
-            <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" rel="noopener noreferrer" class="service-link">
-                <div class="service">
+        <main class="services-panel">
+            <h2>Como posso te ajudar?</h2>
+            <div class="services-container">
+                <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" rel="noopener noreferrer" class="service-card">
                     <img alt="Ícone representando Inclusão Digital" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
                     <h3>Inclusão Digital</h3>
                     <p>Aprenda os conceitos e ferramentas básicas da informática!</p>
-                </div>
-            </a>
-
-            <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" rel="noopener noreferrer" class="service-link">
-                <div class="service">
+                </a>
+                <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" rel="noopener noreferrer" class="service-card">
                     <img alt="Ícone representando Expansão Digital" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
                     <h3>Expansão Digital</h3>
                     <p>Amplie seus conhecimentos em tecnologia!</p>
-                </div>
-            </a>
-
-            <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" rel="noopener noreferrer" class="service-link">
-                <div class="service">
+                </a>
+                <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" rel="noopener noreferrer" class="service-card">
                     <img alt="Ícone representando Suporte Técnico" src="https://octogreen.com.br/Images/Suporte.png"/>
                     <h3>Suporte Técnico</h3>
-                    <p>Realize manutenções preventivas ou corretivas dos seus equipamentos tecnológicos!</p>            
-                </div>
-            </a>
-
-            <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" rel="noopener noreferrer" class="service-link">
-                <div class="service">
+                    <p>Manutenções preventivas ou corretivas para seus equipamentos.</p>
+                </a>
+                <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" rel="noopener noreferrer" class="service-card">
                     <img alt="Ícone representando Assessoria Tecnológica" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
                     <h3>Assessoria</h3>
-                    <p>Assessoria sob medida para demandas digitais.</p>
-                </div>
-            </a>
-        </div> 
-                
-        <div class="footer">
-            <p>2024-2025</p>
-        </div>
+                    <p>Assessoria sob medida para suas demandas digitais.</p>
+                </a>
+            </div>
+        </main>
     </div>
+
+    <footer class="footer">
+        <p>&copy; <span id="current-year"></span> Prof. Ravell.</p>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
