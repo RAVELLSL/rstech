@@ -4,7 +4,6 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Prof. Ravell - Especialista em Tecnologias Digitais</title>
-
     <meta name="description" content="Aulas particulares, assessoria e suporte em tecnologia com o Prof. Ravell. Aprenda informática, do básico ao avançado, e resolva seus problemas digitais.">
     
     <meta property="og:title" content="Prof. Ravell - Especialista em Tecnologias Digitais">
@@ -96,13 +95,12 @@
             white-space: nowrap;
         }
 
-        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
         .aluno-btn:hover,
         .aluno-btn:focus-visible {
             background-position: right center;
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-            outline: none; /* Remove o contorno padrão em favor do nosso efeito customizado */
+            outline: none;
         }
 
         .aluno-btn i {
@@ -120,7 +118,6 @@
             transition: all 0.3s ease;
         }
 
-        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
         .social-links a:hover,
         .social-links a:focus-visible {
             color: var(--primary-color);
@@ -142,8 +139,12 @@
 
         .services-panel h2 {
             font-size: clamp(1.5rem, 3vw, 2.2rem);
-            margin-bottom: 4vh;
+            margin-bottom: 4vh; 
             text-align: center;
+        }
+        
+        .toggle-icon {
+            display: none;
         }
 
         .services-container {
@@ -151,10 +152,11 @@
             grid-template-columns: repeat(2, 1fr);
             gap: clamp(15px, 2vw, 25px);
             width: 100%;
-            max-width: 800px;
+            max-width: 720px; 
         }
 
         .service-card {
+            aspect-ratio: 4 / 3; /* AJUSTE DEFINITIVO: Retângulo suave para economizar altura */
             background: #fdfdfd;
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -167,15 +169,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            cursor: pointer; /* [UX] Adicionado cursor de ponteiro */
+            cursor: pointer;
         }
 
-        /* [A11Y] Adicionado :focus-visible para acessibilidade via teclado */
         .service-card:hover,
         .service-card:focus-visible {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-            outline: 2px solid var(--primary-color); /* Adiciona um contorno visível no foco */
+            outline: 2px solid var(--primary-color);
             outline-offset: 2px;
         }
 
@@ -204,41 +205,90 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 10px;
-            font-size: 0.8rem; /* Levemente reduzido para acomodar mais texto */
+            font-size: 0.8rem;
             color: #aaa;
             width: 100%;
             text-align: center;
             z-index: 10;
         }
-
+        
         .footer p {
             margin: 0;
         }
 
-        /* --- Responsividade para telas de celular --- */
+        /* --- Responsividade Otimizada para Celulares --- */
         @media (max-width: 800px) {
             html, body {
-                overflow: auto; /* Permite a rolagem em telas pequenas */
+                overflow: auto;
+                scroll-behavior: smooth;
             }
+
             .main-container {
                 flex-direction: column;
-                height: auto; /* Altura automática para permitir rolagem */
+                height: auto;
             }
-            .profile-panel {
-                flex: 1 0 auto;
-                padding: 40px 20px;
+
+            .profile-panel, .services-panel {
+                padding: 3rem 1.5rem;
             }
-            .services-panel {
-                padding: 40px 20px 80px; /* Aumentado o padding inferior para o rodapé não cobrir o conteúdo */
+
+            /* --- ESTILOS DO ACCORDION (SANFONA) --- */
+            .services-panel h2 {
+                margin-bottom: 0; 
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                -webkit-tap-highlight-color: transparent;
             }
+            
+            /* No mobile, o card volta a ser quadrado para um melhor toque */
+            .service-card {
+                aspect-ratio: 1 / 1;
+            }
+
+            .toggle-icon {
+                display: inline;
+                font-weight: 700;
+                font-size: 2rem;
+                transition: transform 0.3s ease-out;
+            }
+            
+            .services-panel h2.active .toggle-icon {
+                transform: rotate(135deg);
+            }
+
             .services-container {
-                grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+                grid-template-columns: 1fr;
+                max-height: 0;
+                overflow: hidden;
+                margin-top: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                transition: max-height 0.5s ease-in-out, margin-top 0.3s ease-in-out, padding 0.3s ease-in-out;
             }
+
+            .services-container.active {
+                max-height: 1500px; 
+                margin-top: 2rem; 
+            }
+            
+            /* --- MELHORIA DE FONTE NOS CARDS --- */
+            .service-card h3 {
+                font-size: 1.1rem; 
+            }
+            .service-card p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
             .footer {
-                position: relative; /* Rodapé volta ao fluxo normal no mobile */
+                position: relative;
                 background: var(--bg-profile);
-                padding: 15px;
+                padding: 1.5rem;
                 color: var(--text-light);
+                border-top: 1px solid var(--border-color);
             }
         }
     </style>
@@ -265,8 +315,11 @@
         </section>
 
         <main class="services-panel">
-            <h2>Como posso te ajudar?</h2>
-            <div class="services-container">
+            <h2 id="services-toggle" role="button" aria-expanded="false" aria-controls="services-content">
+                Como posso te ajudar?
+                <span class="toggle-icon">+</span>
+            </h2>
+            <div class="services-container" id="services-content">
                 <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" rel="noopener noreferrer" class="service-card">
                     <img alt="Ícone representando Inclusão Digital" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
                     <h3>Inclusão Digital</h3>
@@ -296,7 +349,28 @@
     </footer>
 
     <script>
+        // Script para atualizar o ano no rodapé
         document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <script>
+        // Script para controlar o accordion (sanfona) na visualização móvel
+        document.addEventListener('DOMContentLoaded', () => {
+            const servicesToggle = document.getElementById('services-toggle');
+            const servicesContent = document.getElementById('services-content');
+            
+            if (servicesToggle && servicesContent) {
+                servicesToggle.addEventListener('click', () => {
+                    // Adiciona ou remove a classe 'active' para ativar as transições no CSS
+                    servicesToggle.classList.toggle('active');
+                    servicesContent.classList.toggle('active');
+
+                    // Atualiza os atributos de acessibilidade
+                    const isExpanded = servicesToggle.classList.contains('active');
+                    servicesToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+        });
     </script>
 
 </body>
