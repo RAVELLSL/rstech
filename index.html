@@ -14,7 +14,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    
     <style>
         /* Variáveis de Tema */
         :root {
@@ -25,6 +24,7 @@
             --bg-profile: #f0f2f5;
             --bg-services: #ffffff;
             --border-color: #e0e0e0;
+            --footer-height: 40px;
         }
 
         /* Estilos Globais */
@@ -33,13 +33,19 @@
             margin: 0;
             padding: 0;
             font-family: 'Montserrat', sans-serif;
-            overflow: hidden; /* Previne a rolagem na visualização de desktop */
+            overflow: hidden; /* no desktop a rolagem é controlada pelos painéis */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
         }
 
         .main-container {
             display: flex;
             width: 100vw;
-            height: 100vh;
+            height: calc(100vh - var(--footer-height)); /* espaço para o footer fixo */
+            flex: 1;
         }
 
         /* --- Painel Esquerdo (Perfil) --- */
@@ -52,6 +58,8 @@
             align-items: center;
             text-align: center;
             padding: 2vw;
+            padding-bottom: calc(2vw + var(--footer-height) / 2); /* compensa footer fixo */
+            overflow-y: auto;
             transition: all 0.3s ease;
         }
 
@@ -100,7 +108,8 @@
             background-position: right center;
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-            outline: none;
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
         .aluno-btn i {
@@ -116,6 +125,7 @@
             font-size: clamp(1.4rem, 2vw, 1.8rem);
             margin: 0 clamp(8px, 1vw, 12px);
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .social-links a:hover,
@@ -134,17 +144,20 @@
             justify-content: center;
             align-items: center;
             padding: 2vw;
+            padding-bottom: calc(2vw + var(--footer-height) / 2);
             overflow-y: auto;
         }
 
         .services-panel h2 {
             font-size: clamp(1.5rem, 3vw, 2.2rem);
-            margin-bottom: 4vh; 
+            margin-bottom: 4vh;
             text-align: center;
         }
-        
+
+        /* Ícone do accordion (só visível no mobile) */
         .toggle-icon {
             display: none;
+            transition: transform 0.3s ease;
         }
 
         .services-container {
@@ -152,15 +165,14 @@
             grid-template-columns: repeat(2, 1fr);
             gap: clamp(15px, 2vw, 25px);
             width: 100%;
-            max-width: 720px; 
+            max-width: 720px;
         }
 
         .service-card {
-            aspect-ratio: 4 / 3; /* AJUSTE DEFINITIVO: Retângulo suave para economizar altura */
             background: #fdfdfd;
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: clamp(10px, 1.8vw, 20px);
+            padding: clamp(15px, 2vw, 25px);
             text-align: center;
             text-decoration: none;
             color: inherit;
@@ -170,6 +182,8 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            /* Altura flexível conforme conteúdo */
+            min-height: 180px;
         }
 
         .service-card:hover,
@@ -180,15 +194,24 @@
             outline-offset: 2px;
         }
 
-        .service-card img {
-            width: clamp(40px, 6vw, 70px);
-            height: clamp(40px, 6vw, 70px);
+        .service-card i {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary-color);
             margin-bottom: 1.5vh;
         }
 
         .service-card h3 {
             margin: 0 0 0.5vh 0;
             font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .service-card h3 i {
+            font-size: 0.7em;
+            color: var(--text-light);
+            margin: 0;
         }
 
         .service-card p {
@@ -198,20 +221,24 @@
             line-height: 1.4;
         }
 
-        /* --- Rodapé --- */
+        /* --- Rodapé Fixo --- */
         .footer {
-            position: absolute;
+            position: fixed;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px;
-            font-size: 0.8rem;
-            color: #aaa;
+            left: 0;
             width: 100%;
-            text-align: center;
-            z-index: 10;
+            height: var(--footer-height);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            z-index: 100;
         }
-        
+
         .footer p {
             margin: 0;
         }
@@ -223,40 +250,52 @@
                 scroll-behavior: smooth;
             }
 
+            body {
+                display: block;
+            }
+
             .main-container {
                 flex-direction: column;
                 height: auto;
+                min-height: 100vh;
+                width: 100%;
             }
 
             .profile-panel, .services-panel {
                 padding: 3rem 1.5rem;
+                padding-bottom: calc(3rem + var(--footer-height));
             }
 
-            /* --- ESTILOS DO ACCORDION (SANFONA) --- */
+            .services-panel {
+                justify-content: flex-start;
+            }
+
+            /* Accordion */
             .services-panel h2 {
-                margin-bottom: 0; 
+                margin-bottom: 0;
                 cursor: pointer;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
                 -webkit-tap-highlight-color: transparent;
+                user-select: none;
             }
-            
-            /* No mobile, o card volta a ser quadrado para um melhor toque */
-            .service-card {
-                aspect-ratio: 1 / 1;
+
+            .services-panel h2:focus-visible {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 4px;
+                border-radius: 4px;
             }
 
             .toggle-icon {
-                display: inline;
-                font-weight: 700;
-                font-size: 2rem;
-                transition: transform 0.3s ease-out;
+                display: inline-flex;
+                font-size: 1.5rem;
+                transition: transform 0.3s ease;
             }
-            
+
             .services-panel h2.active .toggle-icon {
-                transform: rotate(135deg);
+                transform: rotate(180deg);
             }
 
             .services-container {
@@ -266,29 +305,47 @@
                 margin-top: 0;
                 padding-top: 0;
                 padding-bottom: 0;
-                transition: max-height 0.5s ease-in-out, margin-top 0.3s ease-in-out, padding 0.3s ease-in-out;
+                transition: max-height 0.5s ease-in-out;
             }
 
             .services-container.active {
-                max-height: 1500px; 
-                margin-top: 2rem; 
+                max-height: 2000px; /* será ajustado dinamicamente via JS */
+                margin-top: 2rem;
             }
-            
-            /* --- MELHORIA DE FONTE NOS CARDS --- */
+
+            .service-card {
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .service-card i {
+                font-size: 3rem;
+            }
+
             .service-card h3 {
-                font-size: 1.1rem; 
+                font-size: 1.2rem;
             }
+
             .service-card p {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 line-height: 1.5;
             }
 
             .footer {
-                position: relative;
+                position: relative; /* volta ao fluxo normal no mobile */
                 background: var(--bg-profile);
-                padding: 1.5rem;
-                color: var(--text-light);
                 border-top: 1px solid var(--border-color);
+                color: var(--text-light);
+                height: auto;
+                padding: 1rem;
+                backdrop-filter: none;
+            }
+        }
+
+        /* Ajuste fino para telas muito pequenas */
+        @media (max-width: 480px) {
+            .service-card {
+                padding: 15px;
             }
         }
     </style>
@@ -300,7 +357,7 @@
             <img class="profile-image" alt="Foto de perfil de Ravell" src="https://i.ibb.co/9t4389v/unnamed.jpg"/>
             <h1>Ravell</h1>
             <p class="subtitle">Personal Assistant e Professor Particular de Tecnologias Digitais.</p>
-            
+
             <a href="https://ravellsl.github.io/login/" target="_blank" rel="noopener noreferrer" class="aluno-btn">
                 <i class="fas fa-user-graduate"></i>
                 Área do Aluno
@@ -315,29 +372,29 @@
         </section>
 
         <main class="services-panel">
-            <h2 id="services-toggle" role="button" aria-expanded="false" aria-controls="services-content">
+            <h2 id="services-toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="services-content">
                 Como posso te ajudar?
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
             </h2>
             <div class="services-container" id="services-content">
                 <a href="https://ravellsl.github.io/inclusao_digital/" target="_blank" rel="noopener noreferrer" class="service-card">
-                    <img alt="Ícone representando Inclusão Digital" src="https://images.vexels.com/media/users/3/135729/isolated/preview/d09f185e1e94cbc95cfbba1808a0cbdc-icone-plano-do-computador.png"/>
-                    <h3>Inclusão Digital</h3>
+                    <i class="fas fa-laptop"></i>
+                    <h3>Inclusão Digital <i class="fas fa-external-link-alt"></i></h3>
                     <p>Aprenda os conceitos e ferramentas básicas da informática!</p>
                 </a>
                 <a href="https://ravellsl.github.io/expansao_digital/" target="_blank" rel="noopener noreferrer" class="service-card">
-                    <img alt="Ícone representando Expansão Digital" src="https://images.vexels.com/media/users/3/136252/isolated/preview/9ba1b6a847b1d5c7f006d872b0916101-dispositivos-de-conexao-a-internet.png"/>
-                    <h3>Expansão Digital</h3>
+                    <i class="fas fa-expand"></i>
+                    <h3>Expansão Digital <i class="fas fa-external-link-alt"></i></h3>
                     <p>Amplie seus conhecimentos em tecnologia!</p>
                 </a>
                 <a href="https://ravellsl.github.io/suporte_tecnico/" target="_blank" rel="noopener noreferrer" class="service-card">
-                    <img alt="Ícone representando Suporte Técnico" src="https://octogreen.com.br/Images/Suporte.png"/>
-                    <h3>Suporte Técnico</h3>
+                    <i class="fas fa-tools"></i>
+                    <h3>Suporte Técnico <i class="fas fa-external-link-alt"></i></h3>
                     <p>Manutenções preventivas ou corretivas para seus equipamentos.</p>
                 </a>
                 <a href="https://ravellsl.github.io/assessoria_tecnologica/" target="_blank" rel="noopener noreferrer" class="service-card">
-                    <img alt="Ícone representando Assessoria Tecnológica" src="https://cdn.pixabay.com/photo/2017/08/28/17/55/computers-2690565_960_720.png"/>
-                    <h3>Assessoria</h3>
+                    <i class="fas fa-handshake"></i>
+                    <h3>Assessoria <i class="fas fa-external-link-alt"></i></h3>
                     <p>Assessoria sob medida para suas demandas digitais.</p>
                 </a>
             </div>
@@ -349,30 +406,91 @@
     </footer>
 
     <script>
-        // Script para atualizar o ano no rodapé
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+        (function() {
+            'use strict';
 
-    <script>
-        // Script para controlar o accordion (sanfona) na visualização móvel
-        document.addEventListener('DOMContentLoaded', () => {
-            const servicesToggle = document.getElementById('services-toggle');
-            const servicesContent = document.getElementById('services-content');
-            
-            if (servicesToggle && servicesContent) {
-                servicesToggle.addEventListener('click', () => {
-                    // Adiciona ou remove a classe 'active' para ativar as transições no CSS
-                    servicesToggle.classList.toggle('active');
-                    servicesContent.classList.toggle('active');
+            // Atualiza ano no rodapé
+            document.getElementById('current-year').textContent = new Date().getFullYear();
 
-                    // Atualiza os atributos de acessibilidade
-                    const isExpanded = servicesToggle.classList.contains('active');
-                    servicesToggle.setAttribute('aria-expanded', isExpanded);
-                });
+            // ========== Accordion com acessibilidade e altura dinâmica ==========
+            const isMobile = () => window.innerWidth <= 800;
+            const toggle = document.getElementById('services-toggle');
+            const content = document.getElementById('services-content');
+
+            if (!toggle || !content) return;
+
+            // Função para ajustar max-height dinamicamente (transição suave)
+            function setContentHeight(expand) {
+                if (!isMobile()) {
+                    // Em desktop, remove qualquer estilo inline e garante que o conteúdo fique visível
+                    content.style.maxHeight = '';
+                    content.classList.remove('active'); // garante que a classe não interfira
+                    return;
+                }
+
+                if (expand) {
+                    // Calcula a altura real do conteúdo
+                    content.style.maxHeight = 'none'; // remove restrição para medir
+                    const scrollHeight = content.scrollHeight;
+                    content.style.maxHeight = '0'; // volta para zero para animar
+                    // Força reflow
+                    content.offsetHeight;
+                    // Aplica a altura real (com uma pequena folga)
+                    content.style.maxHeight = scrollHeight + 20 + 'px';
+                    content.classList.add('active');
+                } else {
+                    content.style.maxHeight = '0';
+                    content.classList.remove('active');
+                }
             }
-        });
-    </script>
 
+            // Alternância com clique
+            function toggleAccordion(event) {
+                // Se o evento for de teclado, só ativa para Enter ou Espaço
+                if (event.type === 'keydown') {
+                    if (event.key !== 'Enter' && event.key !== ' ') return;
+                    event.preventDefault(); // impede rolagem com espaço
+                }
+
+                const isExpanded = toggle.classList.contains('active');
+                // Inverte estado
+                toggle.classList.toggle('active');
+                toggle.setAttribute('aria-expanded', !isExpanded);
+                setContentHeight(!isExpanded);
+            }
+
+            // Listeners
+            toggle.addEventListener('click', toggleAccordion);
+            toggle.addEventListener('keydown', toggleAccordion);
+
+            // Ao redimensionar a janela, reajusta o estado se necessário
+            window.addEventListener('resize', () => {
+                if (!isMobile()) {
+                    // Em desktop, garante que o conteúdo esteja visível e sem restrições
+                    content.style.maxHeight = '';
+                    content.classList.remove('active');
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Se estiver no mobile e o accordion estiver expandido, recalcula altura
+                    if (toggle.classList.contains('active')) {
+                        setContentHeight(true);
+                    } else {
+                        setContentHeight(false);
+                    }
+                }
+            });
+
+            // Inicializa: no mobile, começa recolhido; no desktop, conteúdo sempre visível
+            if (!isMobile()) {
+                content.style.maxHeight = '';
+                content.classList.remove('active');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            } else {
+                setContentHeight(false);
+            }
+        })();
+    </script>
 </body>
 </html>
-
